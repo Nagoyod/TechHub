@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Profile Management - TeacherHub Pro</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fteacherhub3650back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-slate-50 font-inter">
+    <!-- Header -->
+    <header class="bg-primary-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo and Brand -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-accent-500 p-2 rounded-lg">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">TeacherHub Pro</h1>
+                        <p class="text-primary-200 text-xs">Educational Administration Platform</p>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-md mx-8">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search teachers, documents, or records..." class="w-full pl-10 pr-4 py-2 bg-primary-700 border border-primary-600 rounded-lg text-white placeholder-primary-300 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" />
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-primary-300"></i>
+                    </div>
+                </div>
+
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4">
+                    <button class="relative p-2 text-primary-200 hover:text-white transition-colors">
+                        <i class="fas fa-bell text-lg"></i>
+                        <span class="absolute -top-1 -right-1 bg-accent-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+                    <div class="flex items-center space-x-2">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Admin Profile" class="h-8 w-8 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <span class="text-sm font-medium">Maria Santos</span>
+                        <i class="fas fa-chevron-down text-xs text-primary-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside class="bg-white shadow-lg w-64 min-h-screen">
+            <nav class="p-6">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="dashboard_homepage.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teacher_directory.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-users"></i>
+                            <span>Teacher Directory</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teacher_profile_management.html" class="flex items-center space-x-3 px-4 py-3 bg-primary-50 text-primary-800 rounded-lg font-medium">
+                            <i class="fas fa-user-edit"></i>
+                            <span>Profile Management</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="document_repository.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-folder-open"></i>
+                            <span>Document Repository</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analytics_insights_portal.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics & Insights</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="system_administration.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-cog"></i>
+                            <span>System Administration</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Quick Actions -->
+                <div class="mt-8 pt-6 border-t border-slate-200">
+                    <h3 class="text-sm font-semibold text-secondary-700 mb-3">Quick Actions</h3>
+                    <div class="space-y-2">
+                        <button class="w-full flex items-center space-x-2 px-3 py-2 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors text-sm">
+                            <i class="fas fa-plus"></i>
+                            <span>Add Teacher</span>
+                        </button>
+                        <button class="w-full flex items-center space-x-2 px-3 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm">
+                            <i class="fas fa-upload"></i>
+                            <span>Upload Document</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6">
+            <!-- Header Section -->
+            <div class="mb-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold text-secondary-900">Teacher Profile Management</h2>
+                        <p class="text-secondary-600 mt-1">Manage comprehensive teacher profiles and documentation</p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <button class="px-4 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 transition-colors">
+                            <i class="fas fa-print mr-2"></i>
+                            Print Profile
+                        </button>
+                        <button class="px-4 py-2 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors">
+                            <i class="fas fa-save mr-2"></i>
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Header Card -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 mb-6">
+                <div class="p-6">
+                    <div class="flex items-start space-x-6">
+                        <!-- Profile Photo Section -->
+                        <div class="flex-shrink-0">
+                            <div class="relative">
+                                <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Teacher Profile" class="h-32 w-32 rounded-xl object-cover border-4 border-primary-100" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <button class="absolute -bottom-2 -right-2 bg-accent-500 text-white p-2 rounded-full hover:bg-accent-600 transition-colors">
+                                    <i class="fas fa-camera text-sm"></i>
+                                </button>
+                            </div>
+                            <button class="w-full mt-3 text-sm text-primary-600 hover:text-primary-700 font-medium">
+                                Change Photo
+                            </button>
+                        </div>
+
+                        <!-- Basic Info -->
+                        <div class="flex-1">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <h3 class="text-2xl font-bold text-secondary-900">Dr. Elena Rodriguez</h3>
+                                <span class="px-3 py-1 bg-success-100 text-success-700 rounded-full text-sm font-medium">Active</span>
+                            </div>
+                            <p class="text-lg text-secondary-600 mb-3">Senior Mathematics Teacher</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div>
+                                    <p class="text-sm font-medium text-secondary-700">Employee ID</p>
+                                    <p class="text-secondary-900">TCH-2024-0156</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-secondary-700">Department</p>
+                                    <p class="text-secondary-900">Mathematics</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-secondary-700">Years of Service</p>
+                                    <p class="text-secondary-900">12 years</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Stats -->
+                        <div class="flex-shrink-0">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-center p-3 bg-primary-50 rounded-lg">
+                                    <p class="text-2xl font-bold text-primary-600">98%</p>
+                                    <p class="text-xs text-secondary-600">Compliance</p>
+                                </div>
+                                <div class="text-center p-3 bg-success-50 rounded-lg">
+                                    <p class="text-2xl font-bold text-success-600">24</p>
+                                    <p class="text-xs text-secondary-600">Documents</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabbed Content -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200">
+                <!-- Tab Navigation -->
+                <div class="border-b border-slate-200">
+                    <nav class="flex space-x-8 px-6" aria-label="Tabs">
+                        <button class="tab-button active py-4 px-1 border-b-2 border-primary-500 font-medium text-sm text-primary-600" data-tab="personal">
+                            <i class="fas fa-user mr-2"></i>
+                            Personal Information
+                        </button>
+                        <button class="tab-button py-4 px-1 border-b-2 border-transparent font-medium text-sm text-secondary-500 hover:text-secondary-700 hover:border-secondary-300" data-tab="certifications">
+                            <i class="fas fa-certificate mr-2"></i>
+                            Certifications
+                        </button>
+                        <button class="tab-button py-4 px-1 border-b-2 border-transparent font-medium text-sm text-secondary-500 hover:text-secondary-700 hover:border-secondary-300" data-tab="documents">
+                            <i class="fas fa-folder mr-2"></i>
+                            Documents
+                        </button>
+                        <button class="tab-button py-4 px-1 border-b-2 border-transparent font-medium text-sm text-secondary-500 hover:text-secondary-700 hover:border-secondary-300" data-tab="performance">
+                            <i class="fas fa-chart-line mr-2"></i>
+                            Performance History
+                        </button>
+                        <button class="tab-button py-4 px-1 border-b-2 border-transparent font-medium text-sm text-secondary-500 hover:text-secondary-700 hover:border-secondary-300" data-tab="notes">
+                            <i class="fas fa-sticky-note mr-2"></i>
+                            Notes
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="p-6">
+                    <!-- Personal Information Tab -->
+                    <div id="personal-tab" class="tab-content">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <!-- Basic Information -->
+                            <div>
+                                <h4 class="text-lg font-semibold text-secondary-900 mb-4">Basic Information</h4>
+                                <div class="space-y-4">
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-secondary-700 mb-2">First Name</label>
+                                            <input type="text" value="Elena" class="input-field" />
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-secondary-700 mb-2">Last Name</label>
+                                            <input type="text" value="Rodriguez" class="input-field" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-secondary-700 mb-2">Middle Name</label>
+                                        <input type="text" value="Maria" class="input-field" />
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-secondary-700 mb-2">Date of Birth</label>
+                                            <input type="date" value="1985-03-15" class="input-field" />
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-secondary-700 mb-2">Gender</label>
+                                            <select class="input-field">
+                                                <option>Female</option>
+                                                <option>Male</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-secondary-700 mb-2">Civil Status</label>
+                                        <select class="input-field">
+                                            <option>Married</option>
+                                            <option>Single</option>
+                                            <option>Divorced</option>
+                                            <option>Widowed</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Contact Information -->
+                            <div>
+                                <h4 class="text-lg font-semibold text-secondary-900 mb-4">Contact Information</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-secondary-700 mb-2">Email Address</label>
+                                        <input type="email" value="elena.rodriguez@school.edu.ph" class="input-field" />
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-secondary-700 mb-2">Mobile Number</label>
+                                            <input type="tel" value="+63 917 123 4567" class="input-field" />
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-secondary-700 mb-2">Landline</label>
+                                            <input type="tel" value="(02) 8123-4567" class="input-field" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-secondary-700 mb-2">Home Address</label>
+                                        <textarea rows="3" class="input-field">123 Sampaguita Street, Barangay San Antonio, Quezon City, Metro Manila 1105</textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-secondary-700 mb-2">Emergency Contact</label>
+                                        <input type="text" value="Juan Rodriguez (Spouse) - +63 918 765 4321" class="input-field" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Employment Details -->
+                        <div class="mt-8 pt-6 border-t border-slate-200">
+                            <h4 class="text-lg font-semibold text-secondary-900 mb-4">Employment Details</h4>
+                            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-secondary-700 mb-2">Position</label>
+                                    <input type="text" value="Senior Mathematics Teacher" class="input-field" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-secondary-700 mb-2">Department</label>
+                                    <select class="input-field">
+                                        <option>Mathematics</option>
+                                        <option>Science</option>
+                                        <option>English</option>
+                                        <option>Filipino</option>
+                                        <option>Social Studies</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-secondary-700 mb-2">Employment Status</label>
+                                    <select class="input-field">
+                                        <option>Permanent</option>
+                                        <option>Temporary</option>
+                                        <option>Contractual</option>
+                                        <option>Substitute</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-secondary-700 mb-2">Date Hired</label>
+                                    <input type="date" value="2012-06-15" class="input-field" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-secondary-700 mb-2">Salary Grade</label>
+                                    <input type="text" value="Grade 18" class="input-field" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-secondary-700 mb-2">TIN</label>
+                                    <input type="text" value="123-456-789-000" class="input-field" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications Tab -->
+                    <div id="certifications-tab" class="tab-content hidden">
+                        <div class="flex items-center justify-between mb-6">
+                            <h4 class="text-lg font-semibold text-secondary-900">Certifications & Licenses</h4>
+                            <button class="px-4 py-2 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors">
+                                <i class="fas fa-plus mr-2"></i>
+                                Add Certification
+                            </button>
+                        </div>
+
+                        <!-- Certification Cards -->
+                        <div class="space-y-4">
+                            <div class="border border-slate-200 rounded-lg p-4">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-3 mb-2">
+                                            <h5 class="font-semibold text-secondary-900">Professional Teaching License</h5>
+                                            <span class="px-2 py-1 bg-success-100 text-success-700 rounded-full text-xs font-medium">Valid</span>
+                                        </div>
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                            <div>
+                                                <p class="text-secondary-600">License Number</p>
+                                                <p class="font-medium">PRC-123456789</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-secondary-600">Issue Date</p>
+                                                <p class="font-medium">June 15, 2012</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-secondary-600">Expiry Date</p>
+                                                <p class="font-medium">June 15, 2027</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <button class="p-2 text-secondary-600 hover:text-primary-600 transition-colors">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="p-2 text-secondary-600 hover:text-error-600 transition-colors">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border border-slate-200 rounded-lg p-4">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-3 mb-2">
+                                            <h5 class="font-semibold text-secondary-900">Master's Degree in Mathematics Education</h5>
+                                            <span class="px-2 py-1 bg-primary-100 text-primary-700 rounded-full text-xs font-medium">Verified</span>
+                                        </div>
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                            <div>
+                                                <p class="text-secondary-600">Institution</p>
+                                                <p class="font-medium">University of the Philippines</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-secondary-600">Graduation Date</p>
+                                                <p class="font-medium">March 2015</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-secondary-600">GPA</p>
+                                                <p class="font-medium">1.25 (Summa Cum Laude)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <button class="p-2 text-secondary-600 hover:text-primary-600 transition-colors">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="p-2 text-secondary-600 hover:text-error-600 transition-colors">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border border-warning-200 bg-warning-50 rounded-lg p-4">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-3 mb-2">
+                                            <h5 class="font-semibold text-secondary-900">CPD Certificate - Advanced Mathematics</h5>
+                                            <span class="px-2 py-1 bg-warning-100 text-warning-700 rounded-full text-xs font-medium">Expiring Soon</span>
+                                        </div>
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                            <div>
+                                                <p class="text-secondary-600">Certificate Number</p>
+                                                <p class="font-medium">CPD-2023-MAT-456</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-secondary-600">Issue Date</p>
+                                                <p class="font-medium">January 10, 2023</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-secondary-600">Expiry Date</p>
+                                                <p class="font-medium text-warning-700">January 10, 2026</p>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3 p-2 bg-warning-100 rounded text-sm text-warning-800">
+                                            <i class="fas fa-exclamation-triangle mr-2"></i>
+                                            Renewal required within 4 months
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <button class="p-2 text-secondary-600 hover:text-primary-600 transition-colors">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="p-2 text-secondary-600 hover:text-error-600 transition-colors">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Documents Tab -->
+                    <div id="documents-tab" class="tab-content hidden">
+                        <div class="flex items-center justify-between mb-6">
+                            <h4 class="text-lg font-semibold text-secondary-900">Document Repository</h4>
+                            <button class="px-4 py-2 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors">
+                                <i class="fas fa-upload mr-2"></i>
+                                Upload Document
+                            </button>
+                        </div>
+
+                        <!-- Document Upload Area -->
+                        <div class="border-2 border-dashed border-slate-300 rounded-lg p-8 mb-6 text-center hover:border-primary-400 hover:bg-primary-50 transition-colors cursor-pointer" id="dropZone">
+                            <div class="space-y-3">
+                                <div class="mx-auto w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-cloud-upload-alt text-primary-600 text-2xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-lg font-medium text-secondary-900">Drag and drop files here</p>
+                                    <p class="text-secondary-600">or click to browse files</p>
+                                </div>
+                                <p class="text-sm text-secondary-500">Supports PDF, DOC, DOCX, JPG, PNG (Max 10MB)</p>
+                            </div>
+                            <input type="file" class="hidden" id="fileInput" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                        </div>
+
+                        <!-- Document Categories -->
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <!-- Personal Documents -->
+                            <div>
+                                <h5 class="font-semibold text-secondary-900 mb-3">Personal Documents</h5>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between p-3 border border-slate-200 rounded-lg hover:bg-slate-50">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="bg-error-100 p-2 rounded">
+                                                <i class="fas fa-file-pdf text-error-600"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-medium text-secondary-900">Birth Certificate</p>
+                                                <p class="text-sm text-secondary-600">Uploaded: Sept 15, 2025</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <button class="p-1 text-secondary-600 hover:text-primary-600">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="p-1 text-secondary-600 hover:text-accent-600">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center justify-between p-3 border border-slate-200 rounded-lg hover:bg-slate-50">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="bg-primary-100 p-2 rounded">
+                                                <i class="fas fa-file-alt text-primary-600"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-medium text-secondary-900">Resume/CV</p>
+                                                <p class="text-sm text-secondary-600">Updated: Sept 10, 2025</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <button class="p-1 text-secondary-600 hover:text-primary-600">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="p-1 text-secondary-600 hover:text-accent-600">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center justify-between p-3 border border-slate-200 rounded-lg hover:bg-slate-50">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="bg-success-100 p-2 rounded">
+                                                <i class="fas fa-image text-success-600"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-medium text-secondary-900">2x2 ID Photo</p>
+                                                <p class="text-sm text-secondary-600">Uploaded: Aug 28, 2025</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <button class="p-1 text-secondary-600 hover:text-primary-600">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="p-1 text-secondary-600 hover:text-accent-600">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Professional Documents -->
+                            <div>
+                                <h5 class="font-semibold text-secondary-900 mb-3">Professional Documents</h5>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between p-3 border border-slate-200 rounded-lg hover:bg-slate-50">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="bg-accent-100 p-2 rounded">
+                                                <i class="fas fa-certificate text-accent-600"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-medium text-secondary-900">Teaching License</p>
+                                                <p class="text-sm text-secondary-600">Valid until: June 2027</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <button class="p-1 text-secondary-600 hover:text-primary-600">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="p-1 text-secondary-600 hover:text-accent-600">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center justify-between p-3 border border-slate-200 rounded-lg hover:bg-slate-50">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="bg-primary-100 p-2 rounded">
+                                                <i class="fas fa-graduation-cap text-primary-600"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-medium text-secondary-900">Master's Diploma</p>
+                                                <p class="text-sm text-secondary-600">University of the Philippines</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <button class="p-1 text-secondary-600 hover:text-primary-600">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="p-1 text-secondary-600 hover:text-accent-600">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center justify-between p-3 border border-warning-200 bg-warning-50 rounded-lg hover:bg-warning-100">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="bg-warning-100 p-2 rounded">
+                                                <i class="fas fa-exclamation-triangle text-warning-600"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-medium text-secondary-900">CPD Certificate</p>
+                                                <p class="text-sm text-warning-700">Expires: Jan 10, 2026</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <button class="p-1 text-secondary-600 hover:text-primary-600">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="p-1 text-secondary-600 hover:text-accent-600">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance History Tab -->
+                    <div id="performance-tab" class="tab-content hidden">
+                        <div class="flex items-center justify-between mb-6">
+                            <h4 class="text-lg font-semibold text-secondary-900">Performance History & Timeline</h4>
+                            <button class="px-4 py-2 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors">
+                                <i class="fas fa-plus mr-2"></i>
+                                Add Evaluation
+                            </button>
+                        </div>
+
+                        <!-- Performance Summary Cards -->
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+                            <div class="bg-success-50 border border-success-200 rounded-lg p-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-success-700 text-sm font-medium">Overall Rating</p>
+                                        <p class="text-2xl font-bold text-success-800">4.8/5.0</p>
+                                    </div>
+                                    <div class="bg-success-500 p-2 rounded-lg">
+                                        <i class="fas fa-star text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-primary-50 border border-primary-200 rounded-lg p-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-primary-700 text-sm font-medium">Evaluations</p>
+                                        <p class="text-2xl font-bold text-primary-800">12</p>
+                                    </div>
+                                    <div class="bg-primary-500 p-2 rounded-lg">
+                                        <i class="fas fa-clipboard-check text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-accent-50 border border-accent-200 rounded-lg p-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-accent-700 text-sm font-medium">Training Hours</p>
+                                        <p class="text-2xl font-bold text-accent-800">240</p>
+                                    </div>
+                                    <div class="bg-accent-500 p-2 rounded-lg">
+                                        <i class="fas fa-clock text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-secondary-50 border border-secondary-200 rounded-lg p-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-secondary-700 text-sm font-medium">Awards</p>
+                                        <p class="text-2xl font-bold text-secondary-800">5</p>
+                                    </div>
+                                    <div class="bg-secondary-500 p-2 rounded-lg">
+                                        <i class="fas fa-trophy text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline -->
+                        <div class="relative">
+                            <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-200"></div>
+                            
+                            <div class="space-y-6">
+                                <!-- Timeline Item -->
+                                <div class="relative flex items-start space-x-4">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-success-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-star text-white text-sm"></i>
+                                    </div>
+                                    <div class="flex-1 bg-white border border-slate-200 rounded-lg p-4">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <h5 class="font-semibold text-secondary-900">Outstanding Teacher Award</h5>
+                                            <span class="text-sm text-secondary-600">September 2025</span>
+                                        </div>
+                                        <p class="text-secondary-700 text-sm mb-2">Recognized for exceptional performance in mathematics education and student engagement.</p>
+                                        <div class="flex items-center space-x-4 text-sm">
+                                            <span class="px-2 py-1 bg-success-100 text-success-700 rounded-full">Award</span>
+                                            <span class="text-secondary-600">Department of Education</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item -->
+                                <div class="relative flex items-start space-x-4">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-clipboard-check text-white text-sm"></i>
+                                    </div>
+                                    <div class="flex-1 bg-white border border-slate-200 rounded-lg p-4">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <h5 class="font-semibold text-secondary-900">Annual Performance Evaluation</h5>
+                                            <span class="text-sm text-secondary-600">June 2025</span>
+                                        </div>
+                                        <p class="text-secondary-700 text-sm mb-2">Comprehensive evaluation covering teaching effectiveness, professional development, and student outcomes.</p>
+                                        <div class="flex items-center space-x-4 text-sm">
+                                            <span class="px-2 py-1 bg-primary-100 text-primary-700 rounded-full">Evaluation</span>
+                                            <span class="text-secondary-600">Rating: 4.9/5.0</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item -->
+                                <div class="relative flex items-start space-x-4">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-graduation-cap text-white text-sm"></i>
+                                    </div>
+                                    <div class="flex-1 bg-white border border-slate-200 rounded-lg p-4">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <h5 class="font-semibold text-secondary-900">Advanced Mathematics Training</h5>
+                                            <span class="text-sm text-secondary-600">March 2025</span>
+                                        </div>
+                                        <p class="text-secondary-700 text-sm mb-2">Completed 40-hour professional development program on modern mathematics teaching methodologies.</p>
+                                        <div class="flex items-center space-x-4 text-sm">
+                                            <span class="px-2 py-1 bg-accent-100 text-accent-700 rounded-full">Training</span>
+                                            <span class="text-secondary-600">40 CPD Hours</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item -->
+                                <div class="relative flex items-start space-x-4">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-secondary-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-users text-white text-sm"></i>
+                                    </div>
+                                    <div class="flex-1 bg-white border border-slate-200 rounded-lg p-4">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <h5 class="font-semibold text-secondary-900">Department Head Appointment</h5>
+                                            <span class="text-sm text-secondary-600">January 2024</span>
+                                        </div>
+                                        <p class="text-secondary-700 text-sm mb-2">Appointed as Mathematics Department Head, leading a team of 8 teachers.</p>
+                                        <div class="flex items-center space-x-4 text-sm">
+                                            <span class="px-2 py-1 bg-secondary-100 text-secondary-700 rounded-full">Promotion</span>
+                                            <span class="text-secondary-600">Leadership Role</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notes Tab -->
+                    <div id="notes-tab" class="tab-content hidden">
+                        <div class="flex items-center justify-between mb-6">
+                            <h4 class="text-lg font-semibold text-secondary-900">Administrative Notes</h4>
+                            <button class="px-4 py-2 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors">
+                                <i class="fas fa-plus mr-2"></i>
+                                Add Note
+                            </button>
+                        </div>
+
+                        <!-- Notes List -->
+                        <div class="space-y-4">
+                            <div class="bg-white border border-slate-200 rounded-lg p-4">
+                                <div class="flex items-start justify-between mb-3">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="bg-primary-100 p-2 rounded-full">
+                                            <i class="fas fa-user text-primary-600 text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-secondary-900">Maria Santos</p>
+                                            <p class="text-sm text-secondary-600">September 18, 2025 at 2:30 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <button class="p-1 text-secondary-600 hover:text-primary-600">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="p-1 text-secondary-600 hover:text-error-600">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <p class="text-secondary-700 mb-3">Dr. Rodriguez has shown exceptional leadership in the Mathematics Department. Her innovative teaching methods have resulted in a 15% improvement in student test scores this semester. Recommend for consideration in the next promotion cycle.</p>
+                                <div class="flex items-center space-x-2">
+                                    <span class="px-2 py-1 bg-success-100 text-success-700 rounded-full text-xs">Performance</span>
+                                    <span class="px-2 py-1 bg-primary-100 text-primary-700 rounded-full text-xs">Leadership</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-white border border-slate-200 rounded-lg p-4">
+                                <div class="flex items-start justify-between mb-3">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="bg-accent-100 p-2 rounded-full">
+                                            <i class="fas fa-user text-accent-600 text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-secondary-900">Carlos Mendoza</p>
+                                            <p class="text-sm text-secondary-600">September 10, 2025 at 10:15 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <button class="p-1 text-secondary-600 hover:text-primary-600">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="p-1 text-secondary-600 hover:text-error-600">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <p class="text-secondary-700 mb-3">Reminder: Dr. Rodriguez's CPD certificate expires in January 2026. Schedule renewal training by November 2025 to ensure continuous compliance. She has expressed interest in advanced calculus methodology courses.</p>
+                                <div class="flex items-center space-x-2">
+                                    <span class="px-2 py-1 bg-warning-100 text-warning-700 rounded-full text-xs">Compliance</span>
+                                    <span class="px-2 py-1 bg-secondary-100 text-secondary-700 rounded-full text-xs">Training</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-white border border-slate-200 rounded-lg p-4">
+                                <div class="flex items-start justify-between mb-3">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="bg-success-100 p-2 rounded-full">
+                                            <i class="fas fa-user text-success-600 text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-secondary-900">Ana Reyes</p>
+                                            <p class="text-sm text-secondary-600">August 25, 2025 at 4:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <button class="p-1 text-secondary-600 hover:text-primary-600">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="p-1 text-secondary-600 hover:text-error-600">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <p class="text-secondary-700 mb-3">Dr. Rodriguez successfully completed the school's mentorship program, guiding 3 new teachers through their first year. Her mentees have all received positive evaluations. Consider assigning her as a mentor coordinator for the next academic year.</p>
+                                <div class="flex items-center space-x-2">
+                                    <span class="px-2 py-1 bg-primary-100 text-primary-700 rounded-full text-xs">Mentorship</span>
+                                    <span class="px-2 py-1 bg-success-100 text-success-700 rounded-full text-xs">Achievement</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add Note Form -->
+                        <div class="mt-6 bg-slate-50 border border-slate-200 rounded-lg p-4">
+                            <h5 class="font-medium text-secondary-900 mb-3">Add New Note</h5>
+                            <div class="space-y-3">
+                                <textarea rows="4" placeholder="Enter your note here..." class="input-field resize-none"></textarea>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-2">
+                                        <select class="px-3 py-1 border border-slate-300 rounded text-sm">
+                                            <option>General</option>
+                                            <option>Performance</option>
+                                            <option>Compliance</option>
+                                            <option>Training</option>
+                                            <option>Achievement</option>
+                                        </select>
+                                    </div>
+                                    <button class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
+                                        Save Note
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions Sidebar -->
+            <div class="fixed right-6 top-1/2 transform -translate-y-1/2 space-y-3 z-40">
+                <button class="w-12 h-12 bg-primary-600 text-white rounded-full shadow-lg hover:bg-primary-700 transition-colors flex items-center justify-center" title="Generate Report">
+                    <i class="fas fa-file-alt"></i>
+                </button>
+                <button class="w-12 h-12 bg-accent-500 text-white rounded-full shadow-lg hover:bg-accent-600 transition-colors flex items-center justify-center" title="Send Message">
+                    <i class="fas fa-envelope"></i>
+                </button>
+                <button class="w-12 h-12 bg-success-600 text-white rounded-full shadow-lg hover:bg-success-700 transition-colors flex items-center justify-center" title="Schedule Evaluation">
+                    <i class="fas fa-calendar-plus"></i>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active', 'border-primary-500', 'text-primary-600');
+                        btn.classList.add('border-transparent', 'text-secondary-500');
+                    });
+                    
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active', 'border-primary-500', 'text-primary-600');
+                    button.classList.remove('border-transparent', 'text-secondary-500');
+                    
+                    document.getElementById(tabId + '-tab').classList.remove('hidden');
+                });
+            });
+
+            // Drag and drop functionality
+            const dropZone = document.getElementById('dropZone');
+            const fileInput = document.getElementById('fileInput');
+
+            dropZone.addEventListener('click', () => {
+                fileInput.click();
+            });
+
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('border-primary-500', 'bg-primary-100');
+            });
+
+            dropZone.addEventListener('dragleave', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('border-primary-500', 'bg-primary-100');
+            });
+
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('border-primary-500', 'bg-primary-100');
+                
+                const files = e.dataTransfer.files;
+                handleFiles(files);
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                handleFiles(e.target.files);
+            });
+
+            function handleFiles(files) {
+                Array.from(files).forEach(file => {
+                    console.log('File uploaded:', file.name);
+                    // Here you would typically upload the file to your server
+                });
+            }
+
+            // Auto-save functionality simulation
+            const inputs = document.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.addEventListener('change', () => {
+                    // Simulate auto-save
+                    console.log('Auto-saving changes...');
+                });
+            });
+
+            // Animation for cards
+            const cards = document.querySelectorAll('.bg-white');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics & Insights Portal - TeacherHub Pro</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fteacherhub3650back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-slate-50 font-inter">
+    <!-- Header -->
+    <header class="bg-primary-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo and Brand -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-accent-500 p-2 rounded-lg">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">TeacherHub Pro</h1>
+                        <p class="text-primary-200 text-xs">Educational Administration Platform</p>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-md mx-8">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search analytics, reports, or metrics..." class="w-full pl-10 pr-4 py-2 bg-primary-700 border border-primary-600 rounded-lg text-white placeholder-primary-300 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" />
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-primary-300"></i>
+                    </div>
+                </div>
+
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4">
+                    <button class="relative p-2 text-primary-200 hover:text-white transition-colors">
+                        <i class="fas fa-bell text-lg"></i>
+                        <span class="absolute -top-1 -right-1 bg-accent-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+                    <div class="flex items-center space-x-2">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Admin Profile" class="h-8 w-8 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <span class="text-sm font-medium">Maria Santos</span>
+                        <i class="fas fa-chevron-down text-xs text-primary-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside class="bg-white shadow-lg w-64 min-h-screen">
+            <nav class="p-6">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="dashboard_homepage.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teacher_directory.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-users"></i>
+                            <span>Teacher Directory</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teacher_profile_management.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-user-edit"></i>
+                            <span>Profile Management</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="document_repository.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-folder-open"></i>
+                            <span>Document Repository</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analytics_insights_portal.html" class="flex items-center space-x-3 px-4 py-3 bg-primary-50 text-primary-800 rounded-lg font-medium">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics & Insights</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="system_administration.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-cog"></i>
+                            <span>System Administration</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Quick Actions -->
+                <div class="mt-8 pt-6 border-t border-slate-200">
+                    <h3 class="text-sm font-semibold text-secondary-700 mb-3">Quick Actions</h3>
+                    <div class="space-y-2">
+                        <button class="w-full flex items-center space-x-2 px-3 py-2 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors text-sm">
+                            <i class="fas fa-download"></i>
+                            <span>Export Report</span>
+                        </button>
+                        <button class="w-full flex items-center space-x-2 px-3 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Schedule Report</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6">
+            <!-- Page Header -->
+            <div class="mb-8">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold text-secondary-900 mb-2">Analytics & Insights Portal</h2>
+                        <p class="text-secondary-600">Comprehensive data visualization and performance metrics for informed decision-making</p>
+                        <p class="text-secondary-500 text-sm mt-1">Last updated: September 19, 2025 at 5:30 AM</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 flex space-x-3">
+                        <button class="flex items-center space-x-2 px-4 py-2 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors">
+                            <i class="fas fa-filter text-secondary-600"></i>
+                            <span class="text-secondary-700">Filters</span>
+                        </button>
+                        <button class="flex items-center space-x-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
+                            <i class="fas fa-download"></i>
+                            <span>Export Data</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Date Range and Filters -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+                    <div class="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-calendar-alt text-secondary-600"></i>
+                            <span class="text-sm font-medium text-secondary-700">Date Range:</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <input type="date" value="2025-08-01" class="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500" />
+                            <span class="text-secondary-500">to</span>
+                            <input type="date" value="2025-09-19" class="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500" />
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <select class="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            <option>All Departments</option>
+                            <option>Mathematics</option>
+                            <option>Science</option>
+                            <option>English</option>
+                            <option>Social Studies</option>
+                        </select>
+                        <select class="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            <option>All Teachers</option>
+                            <option>Active Only</option>
+                            <option>New Hires</option>
+                            <option>Probationary</option>
+                        </select>
+                        <button class="px-3 py-2 bg-secondary-100 text-secondary-700 rounded-lg hover:bg-secondary-200 transition-colors text-sm">
+                            <i class="fas fa-undo"></i> Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Performance Indicators -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-secondary-600 text-sm font-medium">Teacher Retention Rate</p>
+                            <p class="text-3xl font-bold text-secondary-900 mt-1">92.4%</p>
+                            <p class="text-success-600 text-sm mt-2">
+                                <i class="fas fa-arrow-up"></i> +2.1% vs last year
+                            </p>
+                        </div>
+                        <div class="bg-success-100 p-3 rounded-lg">
+                            <i class="fas fa-user-check text-success-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-secondary-600 text-sm font-medium">Compliance Rate</p>
+                            <p class="text-3xl font-bold text-secondary-900 mt-1">94.2%</p>
+                            <p class="text-warning-600 text-sm mt-2">
+                                <i class="fas fa-exclamation-triangle"></i> 14 expiring soon
+                            </p>
+                        </div>
+                        <div class="bg-primary-100 p-3 rounded-lg">
+                            <i class="fas fa-shield-alt text-primary-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-secondary-600 text-sm font-medium">Avg. Processing Time</p>
+                            <p class="text-3xl font-bold text-secondary-900 mt-1">2.3 days</p>
+                            <p class="text-success-600 text-sm mt-2">
+                                <i class="fas fa-arrow-down"></i> -0.5 days improved
+                            </p>
+                        </div>
+                        <div class="bg-accent-100 p-3 rounded-lg">
+                            <i class="fas fa-clock text-accent-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-secondary-600 text-sm font-medium">System Usage</p>
+                            <p class="text-3xl font-bold text-secondary-900 mt-1">87.6%</p>
+                            <p class="text-success-600 text-sm mt-2">
+                                <i class="fas fa-arrow-up"></i> +5.2% this month
+                            </p>
+                        </div>
+                        <div class="bg-secondary-100 p-3 rounded-lg">
+                            <i class="fas fa-chart-bar text-secondary-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts and Analytics Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <!-- Teacher Retention Trends -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200">
+                    <div class="p-6 border-b border-slate-200">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-semibold text-secondary-900">Teacher Retention Trends</h3>
+                            <button class="text-secondary-500 hover:text-secondary-700">
+                                <i class="fas fa-expand-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="h-64 flex items-center justify-center bg-slate-50 rounded-lg">
+                            <svg viewBox="0 0 400 200" class="w-full h-full">
+                                <!-- Chart Background -->
+                                <rect width="400" height="200" fill="#f8fafc"/>
+                                
+                                <!-- Grid Lines -->
+                                <g stroke="#e2e8f0" stroke-width="1">
+                                    <line x1="50" y1="20" x2="50" y2="180"/>
+                                    <line x1="50" y1="180" x2="380" y2="180"/>
+                                    <line x1="50" y1="140" x2="380" y2="140" stroke-dasharray="2,2"/>
+                                    <line x1="50" y1="100" x2="380" y2="100" stroke-dasharray="2,2"/>
+                                    <line x1="50" y1="60" x2="380" y2="60" stroke-dasharray="2,2"/>
+                                </g>
+                                
+                                <!-- Retention Rate Line -->
+                                <polyline points="50,120 100,110 150,100 200,95 250,90 300,85 350,80" fill="none" stroke="#1e3a8a" stroke-width="3"/>
+                                
+                                <!-- Data Points -->
+                                <g fill="#1e3a8a">
+                                    <circle cx="50" cy="120" r="4"/>
+                                    <circle cx="100" cy="110" r="4"/>
+                                    <circle cx="150" cy="100" r="4"/>
+                                    <circle cx="200" cy="95" r="4"/>
+                                    <circle cx="250" cy="90" r="4"/>
+                                    <circle cx="300" cy="85" r="4"/>
+                                    <circle cx="350" cy="80" r="4"/>
+                                </g>
+                                
+                                <!-- Labels -->
+                                <g fill="#64748b" font-size="12" text-anchor="middle">
+                                    <text x="50" y="195">Jan</text>
+                                    <text x="100" y="195">Feb</text>
+                                    <text x="150" y="195">Mar</text>
+                                    <text x="200" y="195">Apr</text>
+                                    <text x="250" y="195">May</text>
+                                    <text x="300" y="195">Jun</text>
+                                    <text x="350" y="195">Jul</text>
+                                </g>
+                                
+                                <!-- Y-axis Labels -->
+                                <g fill="#64748b" font-size="10" text-anchor="end">
+                                    <text x="45" y="185">85%</text>
+                                    <text x="45" y="145">90%</text>
+                                    <text x="45" y="105">95%</text>
+                                    <text x="45" y="65">100%</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="mt-4 flex items-center justify-between text-sm">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-primary-600 rounded-full"></div>
+                                <span class="text-secondary-600">Retention Rate</span>
+                            </div>
+                            <span class="text-secondary-500">Last 7 months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compliance Status Distribution -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200">
+                    <div class="p-6 border-b border-slate-200">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-semibold text-secondary-900">Compliance Status Distribution</h3>
+                            <button class="text-secondary-500 hover:text-secondary-700">
+                                <i class="fas fa-expand-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="h-64 flex items-center justify-center">
+                            <svg viewBox="0 0 200 200" class="w-48 h-48">
+                                <!-- Pie Chart -->
+                                <circle cx="100" cy="100" r="80" fill="#16a34a" stroke="white" stroke-width="2"/>
+                                <circle cx="100" cy="100" r="80" fill="#eab308" stroke="white" stroke-width="2" stroke-dasharray="31.4 471.2" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+                                <circle cx="100" cy="100" r="80" fill="#dc2626" stroke="white" stroke-width="2" stroke-dasharray="15.7 486.9" stroke-dashoffset="-31.4" transform="rotate(-90 100 100)"/>
+                                
+                                <!-- Center Text -->
+                                <text x="100" y="95" text-anchor="middle" fill="#0f172a" font-size="18" font-weight="bold">94.2%</text>
+                                <text x="100" y="110" text-anchor="middle" fill="#64748b" font-size="12">Compliant</text>
+                            </svg>
+                        </div>
+                        <div class="mt-4 space-y-2">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-3 h-3 bg-success-600 rounded-full"></div>
+                                    <span class="text-sm text-secondary-700">Fully Compliant</span>
+                                </div>
+                                <span class="text-sm font-medium text-secondary-900">233 (94.2%)</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-3 h-3 bg-warning-500 rounded-full"></div>
+                                    <span class="text-sm text-secondary-700">Expiring Soon</span>
+                                </div>
+                                <span class="text-sm font-medium text-secondary-900">11 (4.5%)</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-3 h-3 bg-error-600 rounded-full"></div>
+                                    <span class="text-sm text-secondary-700">Non-Compliant</span>
+                                </div>
+                                <span class="text-sm font-medium text-secondary-900">3 (1.3%)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Department Performance and Document Processing -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Department Performance -->
+                <div class="lg:col-span-2 bg-white rounded-xl shadow-sm border border-slate-200">
+                    <div class="p-6 border-b border-slate-200">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-semibold text-secondary-900">Department Performance Metrics</h3>
+                            <button class="text-secondary-500 hover:text-secondary-700">
+                                <i class="fas fa-expand-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm font-medium text-secondary-700">Mathematics Department</span>
+                                    <span class="text-sm text-secondary-600">96.8%</span>
+                                </div>
+                                <div class="w-full bg-slate-200 rounded-full h-2">
+                                    <div class="bg-success-600 h-2 rounded-full" style="width: 96.8%"></div>
+                                </div>
+                                <div class="flex justify-between text-xs text-secondary-500 mt-1">
+                                    <span>42 teachers</span>
+                                    <span>Excellent compliance</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm font-medium text-secondary-700">Science Department</span>
+                                    <span class="text-sm text-secondary-600">94.2%</span>
+                                </div>
+                                <div class="w-full bg-slate-200 rounded-full h-2">
+                                    <div class="bg-success-600 h-2 rounded-full" style="width: 94.2%"></div>
+                                </div>
+                                <div class="flex justify-between text-xs text-secondary-500 mt-1">
+                                    <span>38 teachers</span>
+                                    <span>Good compliance</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm font-medium text-secondary-700">English Department</span>
+                                    <span class="text-sm text-secondary-600">91.5%</span>
+                                </div>
+                                <div class="w-full bg-slate-200 rounded-full h-2">
+                                    <div class="bg-warning-500 h-2 rounded-full" style="width: 91.5%"></div>
+                                </div>
+                                <div class="flex justify-between text-xs text-secondary-500 mt-1">
+                                    <span>35 teachers</span>
+                                    <span>Needs attention</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm font-medium text-secondary-700">Social Studies</span>
+                                    <span class="text-sm text-secondary-600">89.3%</span>
+                                </div>
+                                <div class="w-full bg-slate-200 rounded-full h-2">
+                                    <div class="bg-warning-500 h-2 rounded-full" style="width: 89.3%"></div>
+                                </div>
+                                <div class="flex justify-between text-xs text-secondary-500 mt-1">
+                                    <span>28 teachers</span>
+                                    <span>Requires improvement</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm font-medium text-secondary-700">Physical Education</span>
+                                    <span class="text-sm text-secondary-600">87.1%</span>
+                                </div>
+                                <div class="w-full bg-slate-200 rounded-full h-2">
+                                    <div class="bg-error-500 h-2 rounded-full" style="width: 87.1%"></div>
+                                </div>
+                                <div class="flex justify-between text-xs text-secondary-500 mt-1">
+                                    <span>15 teachers</span>
+                                    <span>Critical attention needed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Processing Stats -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200">
+                    <div class="p-6 border-b border-slate-200">
+                        <h3 class="text-lg font-semibold text-secondary-900">Document Processing</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-primary-600 mb-1">1,834</div>
+                                <div class="text-sm text-secondary-600">Documents Processed</div>
+                                <div class="text-xs text-success-600 mt-1">
+                                    <i class="fas fa-arrow-up"></i> +156 this month
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-2 h-2 bg-success-600 rounded-full"></div>
+                                        <span class="text-sm text-secondary-700">Approved</span>
+                                    </div>
+                                    <span class="text-sm font-medium text-secondary-900">1,642</span>
+                                </div>
+
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-2 h-2 bg-warning-500 rounded-full"></div>
+                                        <span class="text-sm text-secondary-700">Pending</span>
+                                    </div>
+                                    <span class="text-sm font-medium text-secondary-900">156</span>
+                                </div>
+
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-2 h-2 bg-error-600 rounded-full"></div>
+                                        <span class="text-sm text-secondary-700">Rejected</span>
+                                    </div>
+                                    <span class="text-sm font-medium text-secondary-900">36</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-slate-200">
+                                <div class="text-center">
+                                    <div class="text-lg font-semibold text-secondary-900 mb-1">2.3 days</div>
+                                    <div class="text-xs text-secondary-600">Average Processing Time</div>
+                                    <div class="text-xs text-success-600 mt-1">
+                                        <i class="fas fa-arrow-down"></i> 0.5 days faster
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Reports and Export Options -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Recent Reports -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200">
+                    <div class="p-6 border-b border-slate-200">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-semibold text-secondary-900">Recent Reports</h3>
+                            <button class="text-primary-600 hover:text-primary-700 text-sm font-medium">
+                                View All Reports
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-lg">
+                                <div class="bg-primary-100 p-2 rounded-lg">
+                                    <i class="fas fa-file-pdf text-primary-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-secondary-900">Monthly Compliance Report</p>
+                                    <p class="text-xs text-secondary-600">Generated on September 15, 2025</p>
+                                    <div class="flex items-center space-x-4 mt-2">
+                                        <button class="text-xs text-primary-600 hover:text-primary-700">Download</button>
+                                        <button class="text-xs text-secondary-500 hover:text-secondary-700">Share</button>
+                                    </div>
+                                </div>
+                                <span class="text-xs text-secondary-500">PDF</span>
+                            </div>
+
+                            <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-lg">
+                                <div class="bg-success-100 p-2 rounded-lg">
+                                    <i class="fas fa-file-excel text-success-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-secondary-900">Teacher Performance Analytics</p>
+                                    <p class="text-xs text-secondary-600">Generated on September 12, 2025</p>
+                                    <div class="flex items-center space-x-4 mt-2">
+                                        <button class="text-xs text-primary-600 hover:text-primary-700">Download</button>
+                                        <button class="text-xs text-secondary-500 hover:text-secondary-700">Share</button>
+                                    </div>
+                                </div>
+                                <span class="text-xs text-secondary-500">XLSX</span>
+                            </div>
+
+                            <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-lg">
+                                <div class="bg-accent-100 p-2 rounded-lg">
+                                    <i class="fas fa-chart-bar text-accent-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-secondary-900">Department Comparison Report</p>
+                                    <p class="text-xs text-secondary-600">Generated on September 10, 2025</p>
+                                    <div class="flex items-center space-x-4 mt-2">
+                                        <button class="text-xs text-primary-600 hover:text-primary-700">Download</button>
+                                        <button class="text-xs text-secondary-500 hover:text-secondary-700">Share</button>
+                                    </div>
+                                </div>
+                                <span class="text-xs text-secondary-500">PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Export and Scheduling Options -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200">
+                    <div class="p-6 border-b border-slate-200">
+                        <h3 class="text-lg font-semibold text-secondary-900">Export & Scheduling</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-6">
+                            <!-- Export Options -->
+                            <div>
+                                <h4 class="text-sm font-semibold text-secondary-700 mb-3">Quick Export</h4>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <button class="flex flex-col items-center p-3 border-2 border-dashed border-primary-300 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition-colors group">
+                                        <div class="bg-primary-100 p-2 rounded-lg mb-2 group-hover:bg-primary-200 transition-colors">
+                                            <i class="fas fa-file-pdf text-primary-600"></i>
+                                        </div>
+                                        <span class="text-xs font-medium text-secondary-900">PDF Report</span>
+                                    </button>
+                                    <button class="flex flex-col items-center p-3 border-2 border-dashed border-success-300 rounded-lg hover:border-success-500 hover:bg-success-50 transition-colors group">
+                                        <div class="bg-success-100 p-2 rounded-lg mb-2 group-hover:bg-success-200 transition-colors">
+                                            <i class="fas fa-file-excel text-success-600"></i>
+                                        </div>
+                                        <span class="text-xs font-medium text-secondary-900">Excel Data</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Scheduled Reports -->
+                            <div>
+                                <h4 class="text-sm font-semibold text-secondary-700 mb-3">Scheduled Reports</h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                                        <div>
+                                            <p class="text-sm font-medium text-secondary-900">Weekly Summary</p>
+                                            <p class="text-xs text-secondary-600">Every Monday at 8:00 AM</p>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="w-2 h-2 bg-success-500 rounded-full"></span>
+                                            <span class="text-xs text-success-600">Active</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                                        <div>
+                                            <p class="text-sm font-medium text-secondary-900">Monthly Compliance</p>
+                                            <p class="text-xs text-secondary-600">1st of every month</p>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="w-2 h-2 bg-success-500 rounded-full"></span>
+                                            <span class="text-xs text-success-600">Active</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="w-full mt-3 text-primary-600 hover:text-primary-700 text-sm font-medium border border-primary-200 rounded-lg py-2 hover:bg-primary-50 transition-colors">
+                                    <i class="fas fa-plus mr-2"></i>Add New Schedule
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Chart interactions and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate progress bars
+            const progressBars = document.querySelectorAll('[style*="width:"]');
+            progressBars.forEach((bar, index) => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.transition = 'width 1s ease-out';
+                    bar.style.width = width;
+                }, index * 200);
+            });
+
+            // Animate cards on load
+            const cards = document.querySelectorAll('.bg-white');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+
+            // Add hover effects to chart elements
+            const chartElements = document.querySelectorAll('circle, polyline');
+            chartElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.opacity = '0.8';
+                    this.style.transform = 'scale(1.1)';
+                    this.style.transition = 'all 0.2s ease';
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    this.style.opacity = '1';
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+
+        // Export functionality
+        function exportData(format) {
+            // Simulate export process
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Exporting...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+                // Show success message
+                showNotification(`Data exported successfully as ${format.toUpperCase()}!`, 'success');
+            }, 2000);
+        }
+
+        // Show notification function
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 ${
+                type === 'success' ? 'bg-success-600 text-white' : 'bg-error-600 text-white'
+            }`;
+            notification.innerHTML = `
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-${type === 'success' ? 'check' : 'exclamation-triangle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

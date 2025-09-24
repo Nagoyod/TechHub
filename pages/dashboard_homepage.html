@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - TeacherHub Pro</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fteacherhub3650back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-slate-50 font-inter">
+    <!-- Header -->
+    <header class="bg-primary-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo and Brand -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-accent-500 p-2 rounded-lg">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">TeacherHub Pro</h1>
+                        <p class="text-primary-200 text-xs">Educational Administration Platform</p>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-md mx-8">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search teachers, documents, or records..." class="w-full pl-10 pr-4 py-2 bg-primary-700 border border-primary-600 rounded-lg text-white placeholder-primary-300 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" />
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-primary-300"></i>
+                    </div>
+                </div>
+
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4">
+                    <button class="relative p-2 text-primary-200 hover:text-white transition-colors">
+                        <i class="fas fa-bell text-lg"></i>
+                        <span class="absolute -top-1 -right-1 bg-accent-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+                    <div class="flex items-center space-x-2">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Admin Profile" class="h-8 w-8 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <span class="text-sm font-medium">Maria Santos</span>
+                        <i class="fas fa-chevron-down text-xs text-primary-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside class="bg-white shadow-lg w-64 min-h-screen">
+            <nav class="p-6">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="dashboard_homepage.html" class="flex items-center space-x-3 px-4 py-3 bg-primary-50 text-primary-800 rounded-lg font-medium">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teacher_directory.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-users"></i>
+                            <span>Teacher Directory</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teacher_profile_management.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-user-edit"></i>
+                            <span>Profile Management</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="document_repository.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-folder-open"></i>
+                            <span>Document Repository</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analytics_insights_portal.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics & Insights</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="system_administration.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-cog"></i>
+                            <span>System Administration</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Quick Actions -->
+                <div class="mt-8 pt-6 border-t border-slate-200">
+                    <h3 class="text-sm font-semibold text-secondary-700 mb-3">Quick Actions</h3>
+                    <div class="space-y-2">
+                        <button class="w-full flex items-center space-x-2 px-3 py-2 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors text-sm">
+                            <i class="fas fa-plus"></i>
+                            <span>Add Teacher</span>
+                        </button>
+                        <button class="w-full flex items-center space-x-2 px-3 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm">
+                            <i class="fas fa-upload"></i>
+                            <span>Upload Document</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6">
+            <!-- Welcome Section -->
+            <div class="mb-8">
+                <div class="bg-gradient-to-r from-primary-800 to-primary-600 rounded-xl p-6 text-white">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h2 class="text-2xl font-bold mb-2">Welcome back, Maria!</h2>
+                            <p class="text-primary-100">Here's what's happening at your school today</p>
+                            <p class="text-primary-200 text-sm mt-1">Last login: September 19, 2025 at 8:30 AM</p>
+                        </div>
+                        <div class="hidden md:block">
+                            <img src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=300" alt="School Administration" class="h-24 w-24 rounded-full object-cover border-4 border-primary-400" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Metrics Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-secondary-600 text-sm font-medium">Total Teachers</p>
+                            <p class="text-3xl font-bold text-secondary-900 mt-1">247</p>
+                            <p class="text-success-600 text-sm mt-2">
+                                <i class="fas fa-arrow-up"></i> +12 this month
+                            </p>
+                        </div>
+                        <div class="bg-primary-100 p-3 rounded-lg">
+                            <i class="fas fa-chalkboard-teacher text-primary-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-secondary-600 text-sm font-medium">Documents Processed</p>
+                            <p class="text-3xl font-bold text-secondary-900 mt-1">1,834</p>
+                            <p class="text-success-600 text-sm mt-2">
+                                <i class="fas fa-arrow-up"></i> +156 this month
+                            </p>
+                        </div>
+                        <div class="bg-accent-100 p-3 rounded-lg">
+                            <i class="fas fa-file-alt text-accent-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-secondary-600 text-sm font-medium">Compliance Rate</p>
+                            <p class="text-3xl font-bold text-secondary-900 mt-1">94.2%</p>
+                            <p class="text-warning-600 text-sm mt-2">
+                                <i class="fas fa-exclamation-triangle"></i> 14 expiring soon
+                            </p>
+                        </div>
+                        <div class="bg-success-100 p-3 rounded-lg">
+                            <i class="fas fa-shield-alt text-success-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-secondary-600 text-sm font-medium">Pending Actions</p>
+                            <p class="text-3xl font-bold text-secondary-900 mt-1">23</p>
+                            <p class="text-error-600 text-sm mt-2">
+                                <i class="fas fa-clock"></i> Requires attention
+                            </p>
+                        </div>
+                        <div class="bg-error-100 p-3 rounded-lg">
+                            <i class="fas fa-tasks text-error-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Recent Activity -->
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200">
+                        <div class="p-6 border-b border-slate-200">
+                            <h3 class="text-lg font-semibold text-secondary-900">Recent Activity</h3>
+                        </div>
+                        <div class="p-6">
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="bg-success-100 p-2 rounded-lg">
+                                        <i class="fas fa-user-plus text-success-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium text-secondary-900">New teacher profile created</p>
+                                        <p class="text-xs text-secondary-600">Dr. Elena Rodriguez - Mathematics Department</p>
+                                        <p class="text-xs text-secondary-500 mt-1">2 hours ago</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3">
+                                    <div class="bg-primary-100 p-2 rounded-lg">
+                                        <i class="fas fa-file-upload text-primary-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium text-secondary-900">Document uploaded</p>
+                                        <p class="text-xs text-secondary-600">Teaching License - Prof. Juan Dela Cruz</p>
+                                        <p class="text-xs text-secondary-500 mt-1">4 hours ago</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3">
+                                    <div class="bg-accent-100 p-2 rounded-lg">
+                                        <i class="fas fa-edit text-accent-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium text-secondary-900">Profile updated</p>
+                                        <p class="text-xs text-secondary-600">Ms. Ana Reyes - Contact information</p>
+                                        <p class="text-xs text-secondary-500 mt-1">6 hours ago</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3">
+                                    <div class="bg-warning-100 p-2 rounded-lg">
+                                        <i class="fas fa-exclamation-triangle text-warning-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium text-secondary-900">Certification expiring</p>
+                                        <p class="text-xs text-secondary-600">Mr. Carlos Mendoza - CPD Certificate</p>
+                                        <p class="text-xs text-secondary-500 mt-1">1 day ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="w-full mt-4 text-primary-600 hover:text-primary-700 text-sm font-medium">
+                                View all activity
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions & Compliance Status -->
+                <div class="lg:col-span-2 space-y-6">
+                    <!-- Quick Actions -->
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200">
+                        <div class="p-6 border-b border-slate-200">
+                            <h3 class="text-lg font-semibold text-secondary-900">Quick Actions</h3>
+                        </div>
+                        <div class="p-6">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <button class="flex flex-col items-center p-4 border-2 border-dashed border-accent-300 rounded-lg hover:border-accent-500 hover:bg-accent-50 transition-colors group">
+                                    <div class="bg-accent-500 p-3 rounded-lg mb-3 group-hover:bg-accent-600 transition-colors">
+                                        <i class="fas fa-user-plus text-white text-xl"></i>
+                                    </div>
+                                    <span class="font-medium text-secondary-900">Add New Teacher</span>
+                                    <span class="text-xs text-secondary-600 mt-1">Create teacher profile</span>
+                                </button>
+
+                                <button class="flex flex-col items-center p-4 border-2 border-dashed border-primary-300 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition-colors group">
+                                    <div class="bg-primary-600 p-3 rounded-lg mb-3 group-hover:bg-primary-700 transition-colors">
+                                        <i class="fas fa-cloud-upload-alt text-white text-xl"></i>
+                                    </div>
+                                    <span class="font-medium text-secondary-900">Upload Document</span>
+                                    <span class="text-xs text-secondary-600 mt-1">Add certificates & files</span>
+                                </button>
+
+                                <button class="flex flex-col items-center p-4 border-2 border-dashed border-secondary-300 rounded-lg hover:border-secondary-500 hover:bg-secondary-50 transition-colors group">
+                                    <div class="bg-secondary-600 p-3 rounded-lg mb-3 group-hover:bg-secondary-700 transition-colors">
+                                        <i class="fas fa-chart-bar text-white text-xl"></i>
+                                    </div>
+                                    <span class="font-medium text-secondary-900">Generate Report</span>
+                                    <span class="text-xs text-secondary-600 mt-1">Analytics & insights</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Compliance Status -->
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200">
+                        <div class="p-6 border-b border-slate-200">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-lg font-semibold text-secondary-900">Compliance Status</h3>
+                                <span class="text-sm text-secondary-600">Updated 2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-4 bg-success-50 rounded-lg">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="bg-success-500 p-2 rounded-lg">
+                                            <i class="fas fa-check text-white"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-secondary-900">Teaching Licenses</p>
+                                            <p class="text-sm text-secondary-600">All current and valid</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-success-600 font-semibold">100%</span>
+                                </div>
+
+                                <div class="flex items-center justify-between p-4 bg-warning-50 rounded-lg">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="bg-warning-500 p-2 rounded-lg">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-secondary-900">CPD Certificates</p>
+                                            <p class="text-sm text-secondary-600">14 expiring within 30 days</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-warning-600 font-semibold">94%</span>
+                                </div>
+
+                                <div class="flex items-center justify-between p-4 bg-primary-50 rounded-lg">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="bg-primary-600 p-2 rounded-lg">
+                                            <i class="fas fa-graduation-cap text-white"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-secondary-900">Educational Credentials</p>
+                                            <p class="text-sm text-secondary-600">All verified and up-to-date</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-primary-600 font-semibold">98%</span>
+                                </div>
+                            </div>
+                            <button class="w-full mt-4 bg-primary-600 text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors font-medium">
+                                View Detailed Compliance Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Search Overlay (Hidden by default) -->
+    <div class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="mobileSearchOverlay">
+        <div class="bg-white p-4">
+            <div class="flex items-center space-x-3">
+                <input type="text" placeholder="Search teachers, documents..." class="flex-1 px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500" />
+                <button class="text-secondary-600" onclick="closeMobileSearch()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile search functionality
+        function openMobileSearch() {
+            document.getElementById('mobileSearchOverlay').classList.remove('hidden');
+        }
+
+        function closeMobileSearch() {
+            document.getElementById('mobileSearchOverlay').classList.add('hidden');
+        }
+
+        // Add some interactivity for demo purposes
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate cards on load
+            const cards = document.querySelectorAll('.bg-white');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

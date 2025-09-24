@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Directory - TeacherHub Pro</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fteacherhub3650back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-slate-50 font-inter">
+    <!-- Header -->
+    <header class="bg-primary-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo and Brand -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-accent-500 p-2 rounded-lg">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">TeacherHub Pro</h1>
+                        <p class="text-primary-200 text-xs">Educational Administration Platform</p>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-md mx-8">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search teachers, documents, or records..." class="w-full pl-10 pr-4 py-2 bg-primary-700 border border-primary-600 rounded-lg text-white placeholder-primary-300 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" />
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-primary-300"></i>
+                    </div>
+                </div>
+
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4">
+                    <button class="relative p-2 text-primary-200 hover:text-white transition-colors">
+                        <i class="fas fa-bell text-lg"></i>
+                        <span class="absolute -top-1 -right-1 bg-accent-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+                    <div class="flex items-center space-x-2">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Admin Profile" class="h-8 w-8 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <span class="text-sm font-medium">Maria Santos</span>
+                        <i class="fas fa-chevron-down text-xs text-primary-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside class="bg-white shadow-lg w-64 min-h-screen">
+            <nav class="p-6">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="dashboard_homepage.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teacher_directory.html" class="flex items-center space-x-3 px-4 py-3 bg-primary-50 text-primary-800 rounded-lg font-medium">
+                            <i class="fas fa-users"></i>
+                            <span>Teacher Directory</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teacher_profile_management.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-user-edit"></i>
+                            <span>Profile Management</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="document_repository.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-folder-open"></i>
+                            <span>Document Repository</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analytics_insights_portal.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics & Insights</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="system_administration.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-cog"></i>
+                            <span>System Administration</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Quick Actions -->
+                <div class="mt-8 pt-6 border-t border-slate-200">
+                    <h3 class="text-sm font-semibold text-secondary-700 mb-3">Quick Actions</h3>
+                    <div class="space-y-2">
+                        <button class="w-full flex items-center space-x-2 px-3 py-2 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors text-sm">
+                            <i class="fas fa-plus"></i>
+                            <span>Add Teacher</span>
+                        </button>
+                        <button class="w-full flex items-center space-x-2 px-3 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm">
+                            <i class="fas fa-upload"></i>
+                            <span>Upload Document</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6">
+            <!-- Page Header -->
+            <div class="mb-8">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold text-secondary-900">Teacher Directory</h2>
+                        <p class="text-secondary-600 mt-1">Manage and view all teacher profiles in your institution</p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <button class="bg-secondary-600 text-white px-4 py-2 rounded-lg hover:bg-secondary-700 transition-colors flex items-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span>Export</span>
+                        </button>
+                        <button class="bg-accent-500 text-white px-4 py-2 rounded-lg hover:bg-accent-600 transition-colors flex items-center space-x-2">
+                            <i class="fas fa-plus"></i>
+                            <span>Add Teacher</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search and Filters Section -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6">
+                <div class="flex flex-col lg:flex-row gap-4">
+                    <!-- Main Search -->
+                    <div class="flex-1">
+                        <div class="relative">
+                            <input type="text" id="teacherSearch" placeholder="Search by name, subject, or employee ID..." class="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" />
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-secondary-400"></i>
+                        </div>
+                    </div>
+
+                    <!-- Filter Toggles -->
+                    <div class="flex items-center space-x-3">
+                        <button id="filterToggle" class="flex items-center space-x-2 px-4 py-3 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors">
+                            <i class="fas fa-filter text-secondary-600"></i>
+                            <span class="text-secondary-700">Filters</span>
+                        </button>
+                        <div class="flex items-center bg-slate-100 rounded-lg p-1">
+                            <button id="gridView" class="flex items-center space-x-1 px-3 py-2 bg-white rounded-md shadow-sm text-primary-600">
+                                <i class="fas fa-th-large"></i>
+                                <span class="text-sm">Grid</span>
+                            </button>
+                            <button id="listView" class="flex items-center space-x-1 px-3 py-2 text-secondary-600 hover:bg-white hover:rounded-md transition-colors">
+                                <i class="fas fa-list"></i>
+                                <span class="text-sm">List</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Filters (Hidden by default) -->
+                <div id="advancedFilters" class="hidden mt-6 pt-6 border-t border-slate-200">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-secondary-700 mb-2">Department</label>
+                            <select class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                <option value>All Departments</option>
+                                <option value="mathematics">Mathematics</option>
+                                <option value="science">Science</option>
+                                <option value="english">English</option>
+                                <option value="social-studies">Social Studies</option>
+                                <option value="physical-education">Physical Education</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-secondary-700 mb-2">Certification Status</label>
+                            <select class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                <option value>All Status</option>
+                                <option value="current">Current</option>
+                                <option value="expiring">Expiring Soon</option>
+                                <option value="expired">Expired</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-secondary-700 mb-2">Years of Service</label>
+                            <select class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                <option value>All Experience</option>
+                                <option value="0-2">0-2 years</option>
+                                <option value="3-5">3-5 years</option>
+                                <option value="6-10">6-10 years</option>
+                                <option value="10+">10+ years</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-secondary-700 mb-2">Performance Rating</label>
+                            <select class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                <option value>All Ratings</option>
+                                <option value="excellent">Excellent</option>
+                                <option value="good">Good</option>
+                                <option value="satisfactory">Satisfactory</option>
+                                <option value="needs-improvement">Needs Improvement</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <button class="text-secondary-600 hover:text-secondary-800 text-sm font-medium">
+                            <i class="fas fa-undo mr-1"></i>
+                            Reset Filters
+                        </button>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-sm text-secondary-600">247 teachers found</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bulk Actions Bar (Hidden by default) -->
+            <div id="bulkActions" class="hidden bg-primary-50 border border-primary-200 rounded-lg p-4 mb-6">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <span class="text-primary-800 font-medium">3 teachers selected</span>
+                        <div class="h-4 w-px bg-primary-300"></div>
+                        <button class="text-primary-700 hover:text-primary-800 text-sm font-medium">
+                            <i class="fas fa-envelope mr-1"></i>
+                            Send Notification
+                        </button>
+                        <button class="text-primary-700 hover:text-primary-800 text-sm font-medium">
+                            <i class="fas fa-edit mr-1"></i>
+                            Bulk Update
+                        </button>
+                        <button class="text-primary-700 hover:text-primary-800 text-sm font-medium">
+                            <i class="fas fa-download mr-1"></i>
+                            Export Selected
+                        </button>
+                    </div>
+                    <button class="text-primary-600 hover:text-primary-800">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Teachers Grid -->
+            <div id="teachersGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Teacher Card 1 -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Dr. Elena Rodriguez" class="w-full h-48 object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-success-500 text-white text-xs px-2 py-1 rounded-full">Current</span>
+                        </div>
+                        <div class="absolute top-3 left-3">
+                            <input type="checkbox" class="teacher-checkbox w-4 h-4 text-primary-600 rounded focus:ring-primary-500" />
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-start justify-between mb-2">
+                            <div>
+                                <h3 class="font-semibold text-secondary-900">Dr. Elena Rodriguez</h3>
+                                <p class="text-sm text-secondary-600">Mathematics Department</p>
+                            </div>
+                            <button class="text-secondary-400 hover:text-secondary-600" onclick="showTeacherPreview('elena-rodriguez')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center justify-between">
+                                <span class="text-secondary-600">Employee ID:</span>
+                                <span class="font-medium">TCH-2021-001</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-secondary-600">Years of Service:</span>
+                                <span class="font-medium">8 years</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-secondary-600">Performance:</span>
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between">
+                            <button class="text-primary-600 hover:text-primary-700 text-sm font-medium">
+                                View Profile
+                            </button>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-secondary-400 hover:text-secondary-600">
+                                    <i class="fas fa-envelope"></i>
+                                </button>
+                                <button class="text-secondary-400 hover:text-secondary-600">
+                                    <i class="fas fa-phone"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teacher Card 2 -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="relative">
+                        <img src="https://images.pixabay.com/photos/5214329/pexels-photo-5214329.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Prof. Juan Dela Cruz" class="w-full h-48 object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-warning-500 text-white text-xs px-2 py-1 rounded-full">Expiring</span>
+                        </div>
+                        <div class="absolute top-3 left-3">
+                            <input type="checkbox" class="teacher-checkbox w-4 h-4 text-primary-600 rounded focus:ring-primary-500" />
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-start justify-between mb-2">
+                            <div>
+                                <h3 class="font-semibold text-secondary-900">Prof. Juan Dela Cruz</h3>
+                                <p class="text-sm text-secondary-600">Science Department</p>
+                            </div>
+                            <button class="text-secondary-400 hover:text-secondary-600" onclick="showTeacherPreview('juan-delacruz')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center justify-between">
+                                <span class="text-secondary-600">Employee ID:</span>
+                                <span class="font-medium">TCH-2019-045</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-secondary-600">Years of Service:</span>
+                                <span class="font-medium">12 years</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-secondary-600">Performance:</span>
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="far fa-star text-secondary-300 text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between">
+                            <button class="text-primary-600 hover:text-primary-700 text-sm font-medium">
+                                View Profile
+                            </button>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-secondary-400 hover:text-secondary-600">
+                                    <i class="fas fa-envelope"></i>
+                                </button>
+                                <button class="text-secondary-400 hover:text-secondary-600">
+                                    <i class="fas fa-phone"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teacher Card 3 -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" alt="Ms. Ana Reyes" class="w-full h-48 object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-success-500 text-white text-xs px-2 py-1 rounded-full">Current</span>
+                        </div>
+                        <div class="absolute top-3 left-3">
+                            <input type="checkbox" class="teacher-checkbox w-4 h-4 text-primary-600 rounded focus:ring-primary-500" />
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-start justify-between mb-2">
+                            <div>
+                                <h3 class="font-semibold text-secondary-900">Ms. Ana Reyes</h3>
+                                <p class="text-sm text-secondary-600">English Department</p>
+                            </div>
+                            <button class="text-secondary-400 hover:text-secondary-600" onclick="showTeacherPreview('ana-reyes')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center justify-between">
+                                <span class="text-secondary-600">Employee ID:</span>
+                                <span class="font-medium">TCH-2022-089</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-secondary-600">Years of Service:</span>
+                                <span class="font-medium">3 years</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-secondary-600">Performance:</span>
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between">
+                            <button class="text-primary-600 hover:text-primary-700 text-sm font-medium">
+                                View Profile
+                            </button>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-secondary-400 hover:text-secondary-600">
+                                    <i class="fas fa-envelope"></i>
+                                </button>
+                                <button class="text-secondary-400 hover:text-secondary-600">
+                                    <i class="fas fa-phone"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teacher Card 4 -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Mr. Carlos Mendoza" class="w-full h-48 object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-error-500 text-white text-xs px-2 py-1 rounded-full">Expired</span>
+                        </div>
+                        <div class="absolute top-3 left-3">
+                            <input type="checkbox" class="teacher-checkbox w-4 h-4 text-primary-600 rounded focus:ring-primary-500" />
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-start justify-between mb-2">
+                            <div>
+                                <h3 class="font-semibold text-secondary-900">Mr. Carlos Mendoza</h3>
+                                <p class="text-sm text-secondary-600">Physical Education</p>
+                            </div>
+                            <button class="text-secondary-400 hover:text-secondary-600" onclick="showTeacherPreview('carlos-mendoza')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center justify-between">
+                                <span class="text-secondary-600">Employee ID:</span>
+                                <span class="font-medium">TCH-2018-123</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-secondary-600">Years of Service:</span>
+                                <span class="font-medium">15 years</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-secondary-600">Performance:</span>
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="far fa-star text-secondary-300 text-xs"></i>
+                                    <i class="far fa-star text-secondary-300 text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between">
+                            <button class="text-primary-600 hover:text-primary-700 text-sm font-medium">
+                                View Profile
+                            </button>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-secondary-400 hover:text-secondary-600">
+                                    <i class="fas fa-envelope"></i>
+                                </button>
+                                <button class="text-secondary-400 hover:text-secondary-600">
+                                    <i class="fas fa-phone"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Teacher Cards (5-8) -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="relative">
+                        <img src="https://images.pixabay.com/photos/5214329/pexels-photo-5214329.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Dr. Maria Santos" class="w-full h-48 object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-success-500 text-white text-xs px-2 py-1 rounded-full">Current</span>
+                        </div>
+                        <div class="absolute top-3 left-3">
+                            <input type="checkbox" class="teacher-checkbox w-4 h-4 text-primary-600 rounded focus:ring-primary-500" />
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-start justify-between mb-2">
+                            <div>
+                                <h3 class="font-semibold text-secondary-900">Dr. Maria Santos</h3>
+                                <p class="text-sm text-secondary-600">Social Studies</p>
+                            </div>
+                            <button class="text-secondary-400 hover:text-secondary-600" onclick="showTeacherPreview('maria-santos')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center justify-between">
+                                <span class="text-secondary-600">Employee ID:</span>
+                                <span class="font-medium">TCH-2020-067</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-secondary-600">Years of Service:</span>
+                                <span class="font-medium">6 years</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-secondary-600">Performance:</span>
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="far fa-star text-secondary-300 text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between">
+                            <button class="text-primary-600 hover:text-primary-700 text-sm font-medium">
+                                View Profile
+                            </button>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-secondary-400 hover:text-secondary-600">
+                                    <i class="fas fa-envelope"></i>
+                                </button>
+                                <button class="text-secondary-400 hover:text-secondary-600">
+                                    <i class="fas fa-phone"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More teacher cards would continue here... -->
+            </div>
+
+            <!-- List View (Hidden by default) -->
+            <div id="teachersList" class="hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-slate-50 border-b border-slate-200">
+                            <tr>
+                                <th class="px-6 py-3 text-left">
+                                    <input type="checkbox" class="w-4 h-4 text-primary-600 rounded focus:ring-primary-500" />
+                                </th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-secondary-500 uppercase tracking-wider">Teacher</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-secondary-500 uppercase tracking-wider">Department</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-secondary-500 uppercase tracking-wider">Employee ID</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-secondary-500 uppercase tracking-wider">Experience</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-secondary-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-secondary-500 uppercase tracking-wider">Performance</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-secondary-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-slate-200">
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4">
+                                    <input type="checkbox" class="w-4 h-4 text-primary-600 rounded focus:ring-primary-500" />
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <img src="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Dr. Elena Rodriguez" class="h-10 w-10 rounded-full object-cover mr-3" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                        <div>
+                                            <div class="text-sm font-medium text-secondary-900">Dr. Elena Rodriguez</div>
+                                            <div class="text-sm text-secondary-500">elena.rodriguez@school.edu</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-secondary-900">Mathematics</td>
+                                <td class="px-6 py-4 text-sm text-secondary-900">TCH-2021-001</td>
+                                <td class="px-6 py-4 text-sm text-secondary-900">8 years</td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-success-100 text-success-800">Current</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-star text-warning-500 text-xs"></i>
+                                        <i class="fas fa-star text-warning-500 text-xs"></i>
+                                        <i class="fas fa-star text-warning-500 text-xs"></i>
+                                        <i class="fas fa-star text-warning-500 text-xs"></i>
+                                        <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm font-medium">
+                                    <div class="flex items-center space-x-2">
+                                        <button class="text-primary-600 hover:text-primary-900">View</button>
+                                        <button class="text-secondary-400 hover:text-secondary-600">
+                                            <i class="fas fa-envelope"></i>
+                                        </button>
+                                        <button class="text-secondary-400 hover:text-secondary-600">
+                                            <i class="fas fa-phone"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- More table rows would continue here... -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="mt-8 flex items-center justify-between">
+                <div class="text-sm text-secondary-600">
+                    Showing <span class="font-medium">1</span> to <span class="font-medium">20</span> of <span class="font-medium">247</span> teachers
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="px-3 py-2 text-sm text-secondary-600 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 disabled:opacity-50" disabled>
+                        Previous
+                    </button>
+                    <button class="px-3 py-2 text-sm bg-primary-600 text-white rounded-lg">1</button>
+                    <button class="px-3 py-2 text-sm text-secondary-600 bg-white border border-slate-300 rounded-lg hover:bg-slate-50">2</button>
+                    <button class="px-3 py-2 text-sm text-secondary-600 bg-white border border-slate-300 rounded-lg hover:bg-slate-50">3</button>
+                    <span class="px-3 py-2 text-sm text-secondary-600">...</span>
+                    <button class="px-3 py-2 text-sm text-secondary-600 bg-white border border-slate-300 rounded-lg hover:bg-slate-50">13</button>
+                    <button class="px-3 py-2 text-sm text-secondary-600 bg-white border border-slate-300 rounded-lg hover:bg-slate-50">
+                        Next
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Teacher Preview Modal -->
+    <div id="teacherPreviewModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b border-slate-200">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-xl font-semibold text-secondary-900">Teacher Profile Preview</h3>
+                    <button onclick="closeTeacherPreview()" class="text-secondary-400 hover:text-secondary-600">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="flex items-start space-x-6 mb-6">
+                    <img src="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Teacher Photo" class="w-24 h-24 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                    <div class="flex-1">
+                        <h4 class="text-xl font-semibold text-secondary-900 mb-1">Dr. Elena Rodriguez</h4>
+                        <p class="text-secondary-600 mb-2">Senior Mathematics Teacher</p>
+                        <div class="flex items-center space-x-4 text-sm text-secondary-600">
+                            <span><i class="fas fa-envelope mr-1"></i> elena.rodriguez@school.edu</span>
+                            <span><i class="fas fa-phone mr-1"></i> +63 912 345 6789</span>
+                        </div>
+                    </div>
+                    <span class="bg-success-100 text-success-800 px-3 py-1 rounded-full text-sm font-medium">Current</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h5 class="font-semibold text-secondary-900 mb-3">Basic Information</h5>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-secondary-600">Employee ID:</span>
+                                <span class="font-medium">TCH-2021-001</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-secondary-600">Department:</span>
+                                <span class="font-medium">Mathematics</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-secondary-600">Hire Date:</span>
+                                <span class="font-medium">January 15, 2017</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-secondary-600">Years of Service:</span>
+                                <span class="font-medium">8 years</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-secondary-900 mb-3">Performance & Status</h5>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between items-center">
+                                <span class="text-secondary-600">Performance Rating:</span>
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                    <i class="fas fa-star text-warning-500 text-xs"></i>
+                                </div>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-secondary-600">License Status:</span>
+                                <span class="font-medium text-success-600">Valid until 2026</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-secondary-600">CPD Units:</span>
+                                <span class="font-medium">45/45 Complete</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-secondary-600">Last Evaluation:</span>
+                                <span class="font-medium">March 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-6 border-t border-slate-200">
+                    <div class="flex items-center justify-between">
+                        <button class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors">
+                            View Full Profile
+                        </button>
+                        <div class="flex items-center space-x-2">
+                            <button class="bg-secondary-100 text-secondary-700 px-4 py-2 rounded-lg hover:bg-secondary-200 transition-colors">
+                                <i class="fas fa-envelope mr-1"></i>
+                                Send Message
+                            </button>
+                            <button class="bg-accent-100 text-accent-700 px-4 py-2 rounded-lg hover:bg-accent-200 transition-colors">
+                                <i class="fas fa-edit mr-1"></i>
+                                Edit Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // View Toggle Functionality
+        const gridView = document.getElementById('gridView');
+        const listView = document.getElementById('listView');
+        const teachersGrid = document.getElementById('teachersGrid');
+        const teachersList = document.getElementById('teachersList');
+
+        gridView.addEventListener('click', function() {
+            gridView.classList.add('bg-white', 'shadow-sm', 'text-primary-600');
+            gridView.classList.remove('text-secondary-600');
+            listView.classList.remove('bg-white', 'shadow-sm', 'text-primary-600');
+            listView.classList.add('text-secondary-600');
+            
+            teachersGrid.classList.remove('hidden');
+            teachersList.classList.add('hidden');
+        });
+
+        listView.addEventListener('click', function() {
+            listView.classList.add('bg-white', 'shadow-sm', 'text-primary-600');
+            listView.classList.remove('text-secondary-600');
+            gridView.classList.remove('bg-white', 'shadow-sm', 'text-primary-600');
+            gridView.classList.add('text-secondary-600');
+            
+            teachersList.classList.remove('hidden');
+            teachersGrid.classList.add('hidden');
+        });
+
+        // Filter Toggle
+        const filterToggle = document.getElementById('filterToggle');
+        const advancedFilters = document.getElementById('advancedFilters');
+
+        filterToggle.addEventListener('click', function() {
+            advancedFilters.classList.toggle('hidden');
+        });
+
+        // Checkbox Selection
+        const teacherCheckboxes = document.querySelectorAll('.teacher-checkbox');
+        const bulkActions = document.getElementById('bulkActions');
+
+        teacherCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const checkedBoxes = document.querySelectorAll('.teacher-checkbox:checked');
+                if (checkedBoxes.length > 0) {
+                    bulkActions.classList.remove('hidden');
+                    bulkActions.querySelector('span').textContent = `${checkedBoxes.length} teachers selected`;
+                } else {
+                    bulkActions.classList.add('hidden');
+                }
+            });
+        });
+
+        // Teacher Preview Modal
+        function showTeacherPreview(teacherId) {
+            document.getElementById('teacherPreviewModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTeacherPreview() {
+            document.getElementById('teacherPreviewModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Search Functionality
+        const searchInput = document.getElementById('teacherSearch');
+        searchInput.addEventListener('input', function() {
+            // In a real application, this would filter the teacher cards
+            console.log('Searching for:', this.value);
+        });
+
+        // Animation on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.bg-white');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 50);
+            });
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('teacherPreviewModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeTeacherPreview();
+            }
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

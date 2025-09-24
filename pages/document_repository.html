@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document Repository - TeacherHub Pro</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fteacherhub3650back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-slate-50 font-inter">
+    <!-- Header -->
+    <header class="bg-primary-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo and Brand -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-accent-500 p-2 rounded-lg">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">TeacherHub Pro</h1>
+                        <p class="text-primary-200 text-xs">Educational Administration Platform</p>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-md mx-8">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search documents, files, or content..." class="w-full pl-10 pr-4 py-2 bg-primary-700 border border-primary-600 rounded-lg text-white placeholder-primary-300 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" />
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-primary-300"></i>
+                    </div>
+                </div>
+
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4">
+                    <button class="relative p-2 text-primary-200 hover:text-white transition-colors">
+                        <i class="fas fa-bell text-lg"></i>
+                        <span class="absolute -top-1 -right-1 bg-accent-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+                    <div class="flex items-center space-x-2">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Admin Profile" class="h-8 w-8 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <span class="text-sm font-medium">Maria Santos</span>
+                        <i class="fas fa-chevron-down text-xs text-primary-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside class="bg-white shadow-lg w-64 min-h-screen">
+            <nav class="p-6">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="dashboard_homepage.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teacher_directory.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-users"></i>
+                            <span>Teacher Directory</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teacher_profile_management.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-user-edit"></i>
+                            <span>Profile Management</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="document_repository.html" class="flex items-center space-x-3 px-4 py-3 bg-primary-50 text-primary-800 rounded-lg font-medium">
+                            <i class="fas fa-folder-open"></i>
+                            <span>Document Repository</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analytics_insights_portal.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics & Insights</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="system_administration.html" class="flex items-center space-x-3 px-4 py-3 text-secondary-600 hover:bg-slate-50 rounded-lg transition-colors">
+                            <i class="fas fa-cog"></i>
+                            <span>System Administration</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Quick Actions -->
+                <div class="mt-8 pt-6 border-t border-slate-200">
+                    <h3 class="text-sm font-semibold text-secondary-700 mb-3">Quick Actions</h3>
+                    <div class="space-y-2">
+                        <button class="w-full flex items-center space-x-2 px-3 py-2 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors text-sm">
+                            <i class="fas fa-upload"></i>
+                            <span>Upload Document</span>
+                        </button>
+                        <button class="w-full flex items-center space-x-2 px-3 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm">
+                            <i class="fas fa-folder-plus"></i>
+                            <span>Create Folder</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6">
+            <!-- Header Section -->
+            <div class="mb-8">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                    <div>
+                        <h2 class="text-3xl font-bold text-secondary-900 mb-2">Document Repository</h2>
+                        <p class="text-secondary-600">Centralized file management with advanced organization and search capabilities</p>
+                    </div>
+                    <div class="flex items-center space-x-3 mt-4 md:mt-0">
+                        <button class="flex items-center space-x-2 px-4 py-2 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-medium">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Bulk Upload</span>
+                        </button>
+                        <button class="flex items-center space-x-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-medium">
+                            <i class="fas fa-plus"></i>
+                            <span>New Folder</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Storage Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-secondary-600 text-sm font-medium">Total Documents</p>
+                                <p class="text-2xl font-bold text-secondary-900 mt-1">2,847</p>
+                            </div>
+                            <div class="bg-primary-100 p-2 rounded-lg">
+                                <i class="fas fa-file-alt text-primary-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-secondary-600 text-sm font-medium">Storage Used</p>
+                                <p class="text-2xl font-bold text-secondary-900 mt-1">24.8 GB</p>
+                            </div>
+                            <div class="bg-accent-100 p-2 rounded-lg">
+                                <i class="fas fa-hdd text-accent-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-secondary-600 text-sm font-medium">Recent Uploads</p>
+                                <p class="text-2xl font-bold text-secondary-900 mt-1">156</p>
+                            </div>
+                            <div class="bg-success-100 p-2 rounded-lg">
+                                <i class="fas fa-upload text-success-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-secondary-600 text-sm font-medium">Shared Files</p>
+                                <p class="text-2xl font-bold text-secondary-900 mt-1">432</p>
+                            </div>
+                            <div class="bg-secondary-100 p-2 rounded-lg">
+                                <i class="fas fa-share-alt text-secondary-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search and Filter Bar -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                    <!-- Advanced Search -->
+                    <div class="flex-1 max-w-2xl">
+                        <div class="relative">
+                            <input type="text" placeholder="Search documents, content, or metadata..." class="w-full pl-10 pr-12 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" />
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-secondary-400"></i>
+                            <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-secondary-400 hover:text-primary-600">
+                                <i class="fas fa-sliders-h"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Filter and View Options -->
+                    <div class="flex items-center space-x-3">
+                        <select class="px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            <option>All Categories</option>
+                            <option>Certifications</option>
+                            <option>Evaluations</option>
+                            <option>Training Records</option>
+                            <option>Contracts</option>
+                            <option>Personal Documents</option>
+                        </select>
+
+                        <select class="px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            <option>Date Modified</option>
+                            <option>Date Created</option>
+                            <option>File Name</option>
+                            <option>File Size</option>
+                        </select>
+
+                        <div class="flex items-center bg-slate-100 rounded-lg p-1">
+                            <button class="p-2 bg-white rounded-md shadow-sm text-primary-600">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="p-2 text-secondary-400 hover:text-primary-600">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Filters -->
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <button class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium hover:bg-primary-200 transition-colors">
+                        Recent
+                    </button>
+                    <button class="px-3 py-1 bg-slate-100 text-secondary-600 rounded-full text-sm hover:bg-slate-200 transition-colors">
+                        Shared with me
+                    </button>
+                    <button class="px-3 py-1 bg-slate-100 text-secondary-600 rounded-full text-sm hover:bg-slate-200 transition-colors">
+                        Favorites
+                    </button>
+                    <button class="px-3 py-1 bg-slate-100 text-secondary-600 rounded-full text-sm hover:bg-slate-200 transition-colors">
+                        Expiring soon
+                    </button>
+                    <button class="px-3 py-1 bg-slate-100 text-secondary-600 rounded-full text-sm hover:bg-slate-200 transition-colors">
+                        Large files
+                    </button>
+                </div>
+            </div>
+
+            <!-- Breadcrumb Navigation -->
+            <div class="flex items-center space-x-2 text-sm text-secondary-600 mb-6">
+                <i class="fas fa-home"></i>
+                <span>Repository</span>
+                <i class="fas fa-chevron-right text-xs"></i>
+                <span>Teacher Documents</span>
+                <i class="fas fa-chevron-right text-xs"></i>
+                <span class="text-secondary-900 font-medium">Certifications</span>
+            </div>
+
+            <!-- Document Grid -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200">
+                <!-- Folder Section -->
+                <div class="p-6 border-b border-slate-200">
+                    <h3 class="text-lg font-semibold text-secondary-900 mb-4">Folders</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="flex flex-col items-center p-4 hover:bg-slate-50 rounded-lg cursor-pointer transition-colors group">
+                            <div class="bg-primary-100 p-3 rounded-lg mb-2 group-hover:bg-primary-200 transition-colors">
+                                <i class="fas fa-folder text-primary-600 text-2xl"></i>
+                            </div>
+                            <span class="text-sm font-medium text-secondary-900 text-center">Teaching Licenses</span>
+                            <span class="text-xs text-secondary-500">247 files</span>
+                        </div>
+
+                        <div class="flex flex-col items-center p-4 hover:bg-slate-50 rounded-lg cursor-pointer transition-colors group">
+                            <div class="bg-accent-100 p-3 rounded-lg mb-2 group-hover:bg-accent-200 transition-colors">
+                                <i class="fas fa-folder text-accent-600 text-2xl"></i>
+                            </div>
+                            <span class="text-sm font-medium text-secondary-900 text-center">CPD Certificates</span>
+                            <span class="text-xs text-secondary-500">189 files</span>
+                        </div>
+
+                        <div class="flex flex-col items-center p-4 hover:bg-slate-50 rounded-lg cursor-pointer transition-colors group">
+                            <div class="bg-success-100 p-3 rounded-lg mb-2 group-hover:bg-success-200 transition-colors">
+                                <i class="fas fa-folder text-success-600 text-2xl"></i>
+                            </div>
+                            <span class="text-sm font-medium text-secondary-900 text-center">Performance Reviews</span>
+                            <span class="text-xs text-secondary-500">156 files</span>
+                        </div>
+
+                        <div class="flex flex-col items-center p-4 hover:bg-slate-50 rounded-lg cursor-pointer transition-colors group">
+                            <div class="bg-warning-100 p-3 rounded-lg mb-2 group-hover:bg-warning-200 transition-colors">
+                                <i class="fas fa-folder text-warning-600 text-2xl"></i>
+                            </div>
+                            <span class="text-sm font-medium text-secondary-900 text-center">Contracts</span>
+                            <span class="text-xs text-secondary-500">98 files</span>
+                        </div>
+
+                        <div class="flex flex-col items-center p-4 hover:bg-slate-50 rounded-lg cursor-pointer transition-colors group">
+                            <div class="bg-secondary-100 p-3 rounded-lg mb-2 group-hover:bg-secondary-200 transition-colors">
+                                <i class="fas fa-folder text-secondary-600 text-2xl"></i>
+                            </div>
+                            <span class="text-sm font-medium text-secondary-900 text-center">Training Records</span>
+                            <span class="text-xs text-secondary-500">234 files</span>
+                        </div>
+
+                        <div class="flex flex-col items-center p-4 hover:bg-slate-50 rounded-lg cursor-pointer transition-colors group">
+                            <div class="bg-error-100 p-3 rounded-lg mb-2 group-hover:bg-error-200 transition-colors">
+                                <i class="fas fa-folder text-error-600 text-2xl"></i>
+                            </div>
+                            <span class="text-sm font-medium text-secondary-900 text-center">Medical Records</span>
+                            <span class="text-xs text-secondary-500">67 files</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Documents Section -->
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-secondary-900">Recent Documents</h3>
+                        <button class="text-primary-600 hover:text-primary-700 text-sm font-medium">View all</button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                        <!-- Document Card 1 -->
+                        <div class="border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer group">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="bg-error-100 p-2 rounded-lg">
+                                    <i class="fas fa-file-pdf text-error-600"></i>
+                                </div>
+                                <div class="opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="text-secondary-400 hover:text-secondary-600 p-1">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <h4 class="font-medium text-secondary-900 mb-1 truncate">Teaching License - Maria Santos</h4>
+                            <p class="text-xs text-secondary-500 mb-2">PDF • 2.4 MB</p>
+                            <div class="flex items-center justify-between text-xs text-secondary-500">
+                                <span>Sep 18, 2025</span>
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-eye"></i>
+                                    <span>24</span>
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center space-x-1">
+                                <span class="px-2 py-1 bg-success-100 text-success-700 text-xs rounded-full">Valid</span>
+                            </div>
+                        </div>
+
+                        <!-- Document Card 2 -->
+                        <div class="border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer group">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="bg-primary-100 p-2 rounded-lg">
+                                    <i class="fas fa-file-word text-primary-600"></i>
+                                </div>
+                                <div class="opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="text-secondary-400 hover:text-secondary-600 p-1">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <h4 class="font-medium text-secondary-900 mb-1 truncate">Performance Review - Juan Dela Cruz</h4>
+                            <p class="text-xs text-secondary-500 mb-2">DOCX • 1.8 MB</p>
+                            <div class="flex items-center justify-between text-xs text-secondary-500">
+                                <span>Sep 17, 2025</span>
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-eye"></i>
+                                    <span>12</span>
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center space-x-1">
+                                <span class="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded-full">Reviewed</span>
+                            </div>
+                        </div>
+
+                        <!-- Document Card 3 -->
+                        <div class="border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer group">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="bg-accent-100 p-2 rounded-lg">
+                                    <i class="fas fa-file-image text-accent-600"></i>
+                                </div>
+                                <div class="opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="text-secondary-400 hover:text-secondary-600 p-1">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <h4 class="font-medium text-secondary-900 mb-1 truncate">CPD Certificate - Ana Reyes</h4>
+                            <p class="text-xs text-secondary-500 mb-2">JPG • 3.2 MB</p>
+                            <div class="flex items-center justify-between text-xs text-secondary-500">
+                                <span>Sep 16, 2025</span>
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-eye"></i>
+                                    <span>8</span>
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center space-x-1">
+                                <span class="px-2 py-1 bg-warning-100 text-warning-700 text-xs rounded-full">Expires Soon</span>
+                            </div>
+                        </div>
+
+                        <!-- Document Card 4 -->
+                        <div class="border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer group">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="bg-success-100 p-2 rounded-lg">
+                                    <i class="fas fa-file-excel text-success-600"></i>
+                                </div>
+                                <div class="opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="text-secondary-400 hover:text-secondary-600 p-1">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <h4 class="font-medium text-secondary-900 mb-1 truncate">Training Completion Report</h4>
+                            <p class="text-xs text-secondary-500 mb-2">XLSX • 892 KB</p>
+                            <div class="flex items-center justify-between text-xs text-secondary-500">
+                                <span>Sep 15, 2025</span>
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-eye"></i>
+                                    <span>31</span>
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center space-x-1">
+                                <span class="px-2 py-1 bg-success-100 text-success-700 text-xs rounded-full">Complete</span>
+                            </div>
+                        </div>
+
+                        <!-- Document Card 5 -->
+                        <div class="border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer group">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="bg-secondary-100 p-2 rounded-lg">
+                                    <i class="fas fa-file-alt text-secondary-600"></i>
+                                </div>
+                                <div class="opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="text-secondary-400 hover:text-secondary-600 p-1">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <h4 class="font-medium text-secondary-900 mb-1 truncate">Employment Contract - Carlos Mendoza</h4>
+                            <p class="text-xs text-secondary-500 mb-2">PDF • 1.5 MB</p>
+                            <div class="flex items-center justify-between text-xs text-secondary-500">
+                                <span>Sep 14, 2025</span>
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-eye"></i>
+                                    <span>6</span>
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center space-x-1">
+                                <span class="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded-full">Active</span>
+                            </div>
+                        </div>
+
+                        <!-- Document Card 6 -->
+                        <div class="border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer group">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="bg-warning-100 p-2 rounded-lg">
+                                    <i class="fas fa-file-powerpoint text-warning-600"></i>
+                                </div>
+                                <div class="opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="text-secondary-400 hover:text-secondary-600 p-1">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <h4 class="font-medium text-secondary-900 mb-1 truncate">Workshop Presentation - Elena Rodriguez</h4>
+                            <p class="text-xs text-secondary-500 mb-2">PPTX • 4.7 MB</p>
+                            <div class="flex items-center justify-between text-xs text-secondary-500">
+                                <span>Sep 13, 2025</span>
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-eye"></i>
+                                    <span>18</span>
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center space-x-1">
+                                <span class="px-2 py-1 bg-accent-100 text-accent-700 text-xs rounded-full">Shared</span>
+                            </div>
+                        </div>
+
+                        <!-- Document Card 7 -->
+                        <div class="border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer group">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="bg-error-100 p-2 rounded-lg">
+                                    <i class="fas fa-file-pdf text-error-600"></i>
+                                </div>
+                                <div class="opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="text-secondary-400 hover:text-secondary-600 p-1">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <h4 class="font-medium text-secondary-900 mb-1 truncate">Medical Certificate - Rosa Martinez</h4>
+                            <p class="text-xs text-secondary-500 mb-2">PDF • 1.1 MB</p>
+                            <div class="flex items-center justify-between text-xs text-secondary-500">
+                                <span>Sep 12, 2025</span>
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-eye"></i>
+                                    <span>4</span>
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center space-x-1">
+                                <span class="px-2 py-1 bg-success-100 text-success-700 text-xs rounded-full">Current</span>
+                            </div>
+                        </div>
+
+                        <!-- Document Card 8 -->
+                        <div class="border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer group">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="bg-primary-100 p-2 rounded-lg">
+                                    <i class="fas fa-file-archive text-primary-600"></i>
+                                </div>
+                                <div class="opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="text-secondary-400 hover:text-secondary-600 p-1">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <h4 class="font-medium text-secondary-900 mb-1 truncate">Academic Records Archive</h4>
+                            <p class="text-xs text-secondary-500 mb-2">ZIP • 12.3 MB</p>
+                            <div class="flex items-center justify-between text-xs text-secondary-500">
+                                <span>Sep 11, 2025</span>
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-eye"></i>
+                                    <span>15</span>
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center space-x-1">
+                                <span class="px-2 py-1 bg-secondary-100 text-secondary-700 text-xs rounded-full">Archive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cloud Integration Section -->
+            <div class="mt-8 bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 border border-primary-100">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h3 class="text-lg font-semibold text-secondary-900 mb-2">Cloud Storage Integration</h3>
+                        <p class="text-secondary-600 text-sm">Connect your cloud storage services for seamless file synchronization</p>
+                    </div>
+                    <button class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-medium">
+                        Manage Connections
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white rounded-lg p-4 border border-slate-200">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-3">
+                                <img src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=50" alt="Google Drive" class="h-8 w-8 rounded object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div>
+                                    <h4 class="font-medium text-secondary-900">Google Drive</h4>
+                                    <p class="text-xs text-secondary-500">Connected</p>
+                                </div>
+                            </div>
+                            <div class="h-2 w-2 bg-success-500 rounded-full"></div>
+                        </div>
+                        <p class="text-sm text-secondary-600">1,247 files synced</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-4 border border-slate-200">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-3">
+                                <img src="https://images.pixabay.com/photo/2021/01/30/06/42/microsoft-5962429_1280.png?auto=compress&cs=tinysrgb&w=50" alt="OneDrive" class="h-8 w-8 rounded object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div>
+                                    <h4 class="font-medium text-secondary-900">OneDrive</h4>
+                                    <p class="text-xs text-secondary-500">Connected</p>
+                                </div>
+                            </div>
+                            <div class="h-2 w-2 bg-success-500 rounded-full"></div>
+                        </div>
+                        <p class="text-sm text-secondary-600">892 files synced</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-4 border border-slate-200">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-3">
+                                <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=compress&cs=tinysrgb&w=50" alt="Dropbox" class="h-8 w-8 rounded object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div>
+                                    <h4 class="font-medium text-secondary-900">Dropbox</h4>
+                                    <p class="text-xs text-secondary-500">Not Connected</p>
+                                </div>
+                            </div>
+                            <div class="h-2 w-2 bg-secondary-300 rounded-full"></div>
+                        </div>
+                        <button class="text-sm text-primary-600 hover:text-primary-700 font-medium">Connect now</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Upload Modal (Hidden by default) -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="uploadModal">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="p-6 border-b border-slate-200">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-secondary-900">Upload Documents</h3>
+                        <button onclick="closeUploadModal()" class="text-secondary-400 hover:text-secondary-600">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="border-2 border-dashed border-slate-300 rounded-lg p-8 text-center">
+                        <i class="fas fa-cloud-upload-alt text-4xl text-secondary-400 mb-4"></i>
+                        <h4 class="text-lg font-medium text-secondary-900 mb-2">Drop files here or click to browse</h4>
+                        <p class="text-secondary-600 mb-4">Support for PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, JPG, PNG files</p>
+                        <button class="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
+                            Select Files
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Upload modal functionality
+        function openUploadModal() {
+            document.getElementById('uploadModal').classList.remove('hidden');
+        }
+
+        function closeUploadModal() {
+            document.getElementById('uploadModal').classList.add('hidden');
+        }
+
+        // Add some interactivity for demo purposes
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate cards on load
+            const cards = document.querySelectorAll('.bg-white');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 50);
+            });
+
+            // Add click handlers for upload buttons
+            const uploadButtons = document.querySelectorAll('button:contains("Upload"), button:contains("Bulk Upload")');
+            uploadButtons.forEach(button => {
+                if (button.textContent.includes('Upload')) {
+                    button.addEventListener('click', openUploadModal);
+                }
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
