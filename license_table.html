@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teaching License Records</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Mobile: convert table to stacked cards */
+    :root { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+    @media (max-width: 640px) {
+      table thead { display: none; }
+      table, table tbody, table tr, table td { display: block; width: 100%; }
+      table tr { margin-bottom: 0.75rem; border: 1px solid #e5e7eb; border-radius: .5rem; padding: .75rem; }
+      table td { padding: .5rem .75rem; border: none; }
+      table td:before { content: attr(data-label); float: left; font-weight: 600; text-transform: none; color: #374151; }
+      table td .actions { float: right; }
+    }
+    /* Typography tweaks */
+    h1, h2, h3, h4 { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+    table thead th { font-weight: 700; letter-spacing: 0.2px; }
+    table td { font-size: 0.95rem; }
+    .modal-body { font-size: 0.98rem; }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-6">
+
+  <!-- Page Title -->
+  <div class="mb-6">
+    <h1 class="text-2xl font-bold text-gray-800 text-center">Teaching License Records</h1>
+    <p class="text-center text-gray-500">Admin View of All Teacher Certifications</p>
+  </div>
+
+  <!-- Responsive Table Container -->
+  <!-- Search & Filter -->
+  <div class="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+    <div class="flex items-center gap-2 w-full sm:w-1/2">
+      <label for="search" class="sr-only">Search</label>
+      <div class="relative w-full">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <!-- search icon -->
+          <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 4a7 7 0 100 14 7 7 0 000-14z" />
+          </svg>
+        </div>
+        <input id="search" type="text" placeholder="Search by name, ID, or title..." class="w-full border border-gray-300 rounded-lg pl-10 pr-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+    </div>
+    <div class="flex items-center gap-2 w-full sm:w-auto">
+      <label for="statusFilter" class="text-sm text-gray-600">Filter:</label>
+      <select id="statusFilter" class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <option value="all">All statuses</option>
+        <option value="active">Active</option>
+        <option value="expiring">Expiring Soon</option>
+        <option value="expired">Expired</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="tableContainer" class="overflow-x-auto bg-white shadow-md rounded-2xl">
+    <table class="min-w-full border-collapse border border-gray-200">
+      <thead class="bg-blue-600 text-white">
+        <tr>
+          <th class="py-3 px-4 text-left text-sm font-semibold"><button class="sort-btn" data-key="index">#</button></th>
+          <th class="py-3 px-4 text-left text-sm font-semibold"><button class="sort-btn" data-key="name">Teacher Name</button></th>
+          <th class="py-3 px-4 text-left text-sm font-semibold"><button class="sort-btn" data-key="id">ID Number</button></th>
+          <th class="py-3 px-4 text-left text-sm font-semibold"><button class="sort-btn" data-key="title">Certificate Title</button></th>
+          <th class="py-3 px-4 text-left text-sm font-semibold"><button class="sort-btn" data-key="org">Issuing Organization</button></th>
+          <th class="py-3 px-4 text-left text-sm font-semibold"><button class="sort-btn" data-key="issued">Date Issued</button></th>
+          <th class="py-3 px-4 text-left text-sm font-semibold"><button class="sort-btn" data-key="expiration">Expiration Date</button></th>
+          <th class="py-3 px-4 text-center text-sm font-semibold"><button class="sort-btn" data-key="status">Status</button></th>
+          <th class="py-3 px-4 text-center text-sm font-semibold">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+
+        <!-- Example Row 1 -->
+        <tr class="hover:bg-gray-50">
+          <td class="py-3 px-4 text-sm text-gray-700">1</td>
+          <td class="py-3 px-4 text-sm text-gray-800 font-medium">Maria Dela Cruz</td>
+          <td class="py-3 px-4 text-sm text-gray-600">TCH-00123</td>
+          <td class="py-3 px-4 text-sm text-gray-700">Professional Teaching License</td>
+          <td class="py-3 px-4 text-sm text-gray-700">PRC Philippines</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2022-10-05</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2025-10-05</td>
+          <td class="py-3 px-4 text-center">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">
+              Expiring Soon
+            </span>
+          </td>
+          <td class="py-3 px-4 text-center">
+            <button title="View" aria-label="View" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full inline-flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </button>
+            <button title="Delete" aria-label="Delete" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full inline-flex items-center justify-center ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V4a1 1 0 011-1h6a1 1 0 011 1v3" />
+              </svg>
+            </button>
+          </td>
+        </tr>
+
+        <!-- Example Row 2 -->
+        <tr class="hover:bg-gray-50">
+          <td class="py-3 px-4 text-sm text-gray-700">2</td>
+          <td class="py-3 px-4 text-sm text-gray-800 font-medium">Juan Reyes</td>
+          <td class="py-3 px-4 text-sm text-gray-600">TCH-00456</td>
+          <td class="py-3 px-4 text-sm text-gray-700">TESOL Certification</td>
+          <td class="py-3 px-4 text-sm text-gray-700">Cambridge English</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2023-05-12</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2026-05-12</td>
+          <td class="py-3 px-4 text-center">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+              Active
+            </span>
+          </td>
+          <td class="py-3 px-4 text-center">
+            <button title="View" aria-label="View" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full inline-flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </button>
+            <button title="Delete" aria-label="Delete" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full inline-flex items-center justify-center ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V4a1 1 0 011-1h6a1 1 0 011 1v3" />
+              </svg>
+            </button>
+          </td>
+        </tr>
+
+        <!-- Example Row 3 -->
+        <tr class="hover:bg-gray-50">
+          <td class="py-3 px-4 text-sm text-gray-700">3</td>
+          <td class="py-3 px-4 text-sm text-gray-800 font-medium">Liza Santos</td>
+          <td class="py-3 px-4 text-sm text-gray-600">TCH-00890</td>
+          <td class="py-3 px-4 text-sm text-gray-700">Master Teacher Certification</td>
+          <td class="py-3 px-4 text-sm text-gray-700">DepEd</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2020-03-01</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2023-03-01</td>
+          <td class="py-3 px-4 text-center">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800">
+              Expired
+            </span>
+          </td>
+
+          <td class="py-3 px-4 text-center">
+            <button title="View" aria-label="View" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full inline-flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </button>
+
+            <button title="Delete" aria-label="Delete" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full inline-flex items-center justify-center ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V4a1 1 0 011-1h6a1 1 0 011 1v3" />
+              </svg>
+            </button>
+
+          </td>
+        </tr>
+        <!-- Example Row 1 -->
+        <tr class="hover:bg-gray-50">
+          <td class="py-3 px-4 text-sm text-gray-700">1</td>
+          <td class="py-3 px-4 text-sm text-gray-800 font-medium">Maria Dela Cruz</td>
+          <td class="py-3 px-4 text-sm text-gray-600">TCH-00123</td>
+          <td class="py-3 px-4 text-sm text-gray-700">Professional Teaching License</td>
+          <td class="py-3 px-4 text-sm text-gray-700">PRC Philippines</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2022-10-05</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2025-10-05</td>
+          <td class="py-3 px-4 text-center">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">
+              Expiring Soon
+            </span>
+          </td>
+          <td class="py-3 px-4 text-center">
+            <button title="View" aria-label="View" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full inline-flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </button>
+            <button title="Delete" aria-label="Delete" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full inline-flex items-center justify-center ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V4a1 1 0 011-1h6a1 1 0 011 1v3" />
+              </svg>
+            </button>
+          </td>
+        </tr>
+
+        <!-- Example Row 2 -->
+        <tr class="hover:bg-gray-50">
+          <td class="py-3 px-4 text-sm text-gray-700">2</td>
+          <td class="py-3 px-4 text-sm text-gray-800 font-medium">Juan Reyes</td>
+          <td class="py-3 px-4 text-sm text-gray-600">TCH-00456</td>
+          <td class="py-3 px-4 text-sm text-gray-700">TESOL Certification</td>
+          <td class="py-3 px-4 text-sm text-gray-700">Cambridge English</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2023-05-12</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2026-05-12</td>
+          <td class="py-3 px-4 text-center">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+              Active
+            </span>
+          </td>
+          <td class="py-3 px-4 text-center">
+            <button title="View" aria-label="View" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full inline-flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </button>
+            <button title="Delete" aria-label="Delete" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full inline-flex items-center justify-center ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V4a1 1 0 011-1h6a1 1 0 011 1v3" />
+              </svg>
+            </button>
+          </td>
+        </tr>
+
+        <!-- Example Row 3 -->
+        <tr class="hover:bg-gray-50">
+          <td class="py-3 px-4 text-sm text-gray-700">3</td>
+          <td class="py-3 px-4 text-sm text-gray-800 font-medium">Liza Santos</td>
+          <td class="py-3 px-4 text-sm text-gray-600">TCH-00890</td>
+          <td class="py-3 px-4 text-sm text-gray-700">Master Teacher Certification</td>
+          <td class="py-3 px-4 text-sm text-gray-700">DepEd</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2020-03-01</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2023-03-01</td>
+          <td class="py-3 px-4 text-center">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800">
+              Expired
+            </span>
+          </td>
+            
+          <td class="py-3 px-4 text-center">
+            <button title="View" aria-label="View" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full inline-flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </button>
+
+            <button title="Delete" aria-label="Delete" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full inline-flex items-center justify-center ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V4a1 1 0 011-1h6a1 1 0 011 1v3" />
+              </svg>
+            </button>
+
+          </td>
+        </tr>
+                <!-- Example Row 1 -->
+        <tr class="hover:bg-gray-50">
+          <td class="py-3 px-4 text-sm text-gray-700">1</td>
+          <td class="py-3 px-4 text-sm text-gray-800 font-medium">Maria Dela Cruz</td>
+          <td class="py-3 px-4 text-sm text-gray-600">TCH-00123</td>
+          <td class="py-3 px-4 text-sm text-gray-700">Professional Teaching License</td>
+          <td class="py-3 px-4 text-sm text-gray-700">PRC Philippines</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2022-10-05</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2025-10-05</td>
+          <td class="py-3 px-4 text-center">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">
+              Expiring Soon
+            </span>
+          </td>
+          <td class="py-3 px-4 text-center">
+            <button title="View" aria-label="View" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full inline-flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </button>
+            <button title="Delete" aria-label="Delete" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full inline-flex items-center justify-center ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V4a1 1 0 011-1h6a1 1 0 011 1v3" />
+              </svg>
+            </button>
+          </td>
+        </tr>
+
+        <!-- Example Row 2 -->
+        <tr class="hover:bg-gray-50">
+          <td class="py-3 px-4 text-sm text-gray-700">2</td>
+          <td class="py-3 px-4 text-sm text-gray-800 font-medium">Juan Reyes</td>
+          <td class="py-3 px-4 text-sm text-gray-600">TCH-00456</td>
+          <td class="py-3 px-4 text-sm text-gray-700">TESOL Certification</td>
+          <td class="py-3 px-4 text-sm text-gray-700">Cambridge English</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2023-05-12</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2026-05-12</td>
+          <td class="py-3 px-4 text-center">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+              Active
+            </span>
+          </td>
+          <td class="py-3 px-4 text-center">
+            <button title="View" aria-label="View" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full inline-flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </button>
+            <button title="Delete" aria-label="Delete" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full inline-flex items-center justify-center ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V4a1 1 0 011-1h6a1 1 0 011 1v3" />
+              </svg>
+            </button>
+          </td>
+        </tr>
+
+        <!-- Example Row 3 -->
+        <tr class="hover:bg-gray-50">
+          <td class="py-3 px-4 text-sm text-gray-700">3</td>
+          <td class="py-3 px-4 text-sm text-gray-800 font-medium">Liza Santos</td>
+          <td class="py-3 px-4 text-sm text-gray-600">TCH-00890</td>
+          <td class="py-3 px-4 text-sm text-gray-700">Master Teacher Certification</td>
+          <td class="py-3 px-4 text-sm text-gray-700">DepEd</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2020-03-01</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2023-03-01</td>
+          <td class="py-3 px-4 text-center">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800">
+              Expired
+            </span>
+          </td>
+            
+          <td class="py-3 px-4 text-center">
+            <button title="View" aria-label="View" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full inline-flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </button>
+
+            <button title="Delete" aria-label="Delete" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full inline-flex items-center justify-center ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V4a1 1 0 011-1h6a1 1 0 011 1v3" />
+              </svg>
+            </button>
+
+          </td>
+        </tr>
+                <!-- Example Row 1 -->
+        <tr class="hover:bg-gray-50">
+          <td class="py-3 px-4 text-sm text-gray-700">1</td>
+          <td class="py-3 px-4 text-sm text-gray-800 font-medium">Maria Dela Cruz</td>
+          <td class="py-3 px-4 text-sm text-gray-600">TCH-00123</td>
+          <td class="py-3 px-4 text-sm text-gray-700">Professional Teaching License</td>
+          <td class="py-3 px-4 text-sm text-gray-700">PRC Philippines</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2022-10-05</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2025-10-05</td>
+          <td class="py-3 px-4 text-center">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">
+              Expiring Soon
+            </span>
+          </td>
+          <td class="py-3 px-4 text-center">
+            <button title="View" aria-label="View" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full inline-flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </button>
+            <button title="Delete" aria-label="Delete" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full inline-flex items-center justify-center ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V4a1 1 0 011-1h6a1 1 0 011 1v3" />
+              </svg>
+            </button>
+          </td>
+        </tr>
+
+        <!-- Example Row 2 -->
+        <tr class="hover:bg-gray-50">
+          <td class="py-3 px-4 text-sm text-gray-700">2</td>
+          <td class="py-3 px-4 text-sm text-gray-800 font-medium">Juan Reyes</td>
+          <td class="py-3 px-4 text-sm text-gray-600">TCH-00456</td>
+          <td class="py-3 px-4 text-sm text-gray-700">TESOL Certification</td>
+          <td class="py-3 px-4 text-sm text-gray-700">Cambridge English</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2023-05-12</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2026-05-12</td>
+          <td class="py-3 px-4 text-center">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+              Active
+            </span>
+          </td>
+          <td class="py-3 px-4 text-center">
+            <button title="View" aria-label="View" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full inline-flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </button>
+            <button title="Delete" aria-label="Delete" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full inline-flex items-center justify-center ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V4a1 1 0 011-1h6a1 1 0 011 1v3" />
+              </svg>
+            </button>
+          </td>
+        </tr>
+
+        <!-- Example Row 3 -->
+        <tr class="hover:bg-gray-50">
+          <td class="py-3 px-4 text-sm text-gray-700">3</td>
+          <td class="py-3 px-4 text-sm text-gray-800 font-medium">Liza Santos</td>
+          <td class="py-3 px-4 text-sm text-gray-600">TCH-00890</td>
+          <td class="py-3 px-4 text-sm text-gray-700">Master Teacher Certification</td>
+          <td class="py-3 px-4 text-sm text-gray-700">DepEd</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2020-03-01</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2023-03-01</td>
+          <td class="py-3 px-4 text-center">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800">
+              Expired
+            </span>
+          </td>
+            
+          <td class="py-3 px-4 text-center">
+            <button title="View" aria-label="View" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full inline-flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </button>
+
+            <button title="Delete" aria-label="Delete" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full inline-flex items-center justify-center ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V4a1 1 0 011-1h6a1 1 0 011 1v3" />
+              </svg>
+            </button>
+
+          </td>
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+
+      <!-- Pagination Controls -->
+      <div class="flex items-center justify-between mt-3 px-4">
+        <div class="flex items-center gap-2">
+          <label for="rowsPerPage" class="text-sm text-gray-600">Rows per page:</label>
+          <select id="rowsPerPage" class="border border-gray-300 rounded-lg px-2 py-1 focus:outline-none">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="20">20</option>
+          </select>
+        </div>
+
+        <div id="paginationControls" class="flex items-center gap-2">
+          <button id="prevPage" class="px-3 py-1 bg-gray-200 rounded disabled:opacity-50" aria-label="Previous page">Prev</button>
+          <!-- Numeric page buttons (hidden on very small screens) -->
+          <div id="pages" class="hidden sm:flex items-center gap-1 px-2"></div>
+          <span id="pageInfo" class="text-sm text-gray-600">Page 1 of 1</span>
+          <button id="nextPage" class="px-3 py-1 bg-gray-200 rounded disabled:opacity-50" aria-label="Next page">Next</button>
+        </div>
+      </div>
+
+  <!-- Footer -->
+  <div class="mt-4 text-center text-gray-500 text-sm">
+    © 2025 Teacher License Management System
+  </div>
+
+  <!-- View Modal (hidden by default) -->
+  <div id="viewModalOverlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 items-center justify-center">
+    <div id="viewModal" role="dialog" aria-modal="true" class="bg-white rounded-lg shadow-lg w-full max-w-lg mx-4">
+      <div class="flex items-center justify-between p-4 border-b">
+        <h3 class="text-lg font-semibold">Certificate Details</h3>
+        <button id="viewModalClose" class="text-gray-500 hover:text-gray-700" aria-label="Close details">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 011.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </button>
+      </div>
+      <div class="p-4 modal-body text-sm text-gray-800">
+        <!-- populated dynamically -->
+      </div>
+      <div class="p-4 border-t text-right">
+        <button id="viewModalClose2" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Close</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+    
+<script>
+  // Client-side filtering + pagination for the license table
+  (function(){
+    const searchInput = document.getElementById('search');
+    const statusFilter = document.getElementById('statusFilter');
+    const tableBody = document.querySelector('table tbody');
+    const rowsPerPageSelect = document.getElementById('rowsPerPage');
+    const prevBtn = document.getElementById('prevPage');
+    const nextBtn = document.getElementById('nextPage');
+    const pageInfo = document.getElementById('pageInfo');
+
+    function normalize(text){ return (text||'').toString().toLowerCase(); }
+
+    function getRowStatus(row){
+      const badge = row.querySelector('td:nth-child(8) span');
+      if(!badge) return '';
+      const txt = normalize(badge.textContent);
+      if(txt.includes('expiring')) return 'expiring';
+      if(txt.includes('expired')) return 'expired';
+      if(txt.includes('active')) return 'active';
+      return '';
+    }
+
+    function rowMatches(row, term, status){
+      const text = normalize([].slice.call(row.cells).map(c => c.textContent).join(' '));
+      const rowStatus = getRowStatus(row);
+      const termMatch = term === '' || text.indexOf(term) !== -1;
+      const statusMatch = status === 'all' || status === rowStatus;
+      return termMatch && statusMatch;
+    }
+
+    let allRows = Array.from(tableBody.querySelectorAll('tr'));
+    let filteredRows = allRows.slice();
+    let currentPage = 1;
+    let rowsPerPage = parseInt(rowsPerPageSelect.value, 10) || 10;
+
+    function render(){
+      const start = (currentPage - 1) * rowsPerPage;
+      const end = start + rowsPerPage;
+      // hide all rows first
+      allRows.forEach(r => r.style.display = 'none');
+      // show filtered slice
+      filteredRows.slice(start, end).forEach(r => r.style.display = '');
+
+      const totalPages = Math.max(1, Math.ceil(filteredRows.length / rowsPerPage));
+      pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+      prevBtn.disabled = currentPage <= 1;
+      nextBtn.disabled = currentPage >= totalPages;
+
+      // render numeric buttons (pages)
+      const pagesContainer = document.getElementById('pages');
+      pagesContainer.innerHTML = '';
+      // on very small screens we keep pages hidden (CSS handles .hidden sm:flex)
+      const maxButtons = 7; // show up to 7 page buttons
+      let startPage = 1;
+      let endPage = totalPages;
+      if(totalPages > maxButtons){
+        const half = Math.floor(maxButtons/2);
+        startPage = Math.max(1, currentPage - half);
+        endPage = startPage + maxButtons - 1;
+        if(endPage > totalPages){ endPage = totalPages; startPage = endPage - maxButtons + 1; }
+      }
+
+      for(let p = startPage; p <= endPage; p++){
+        const btn = document.createElement('button');
+        btn.className = 'px-3 py-1 rounded hover:bg-gray-100';
+        if(p === currentPage) btn.className += ' bg-blue-600 text-white';
+        else btn.className += ' bg-white text-gray-700';
+        btn.textContent = p;
+        btn.setAttribute('aria-label', `Page ${p}`);
+        btn.addEventListener('click', () => { currentPage = p; render(); });
+        pagesContainer.appendChild(btn);
+      }
+    }
+
+    function applyFilters(){
+      const term = normalize(searchInput.value.trim());
+      const status = statusFilter.value;
+      filteredRows = allRows.filter(r => rowMatches(r, term, status));
+      currentPage = 1; // reset to first page
+      render();
+    }
+
+    // debounce helper
+    let debounceTimer = null;
+    function debounce(fn, wait){
+      return function(){
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(fn, wait);
+      };
+    }
+
+    // events
+    searchInput.addEventListener('input', debounce(applyFilters, 200));
+    statusFilter.addEventListener('change', applyFilters);
+    rowsPerPageSelect.addEventListener('change', () => {
+      rowsPerPage = parseInt(rowsPerPageSelect.value, 10) || 10;
+      currentPage = 1;
+      render();
+    });
+
+    prevBtn.addEventListener('click', () => { if(currentPage>1){ currentPage--; render(); } });
+    nextBtn.addEventListener('click', () => {
+      const totalPages = Math.max(1, Math.ceil(filteredRows.length / rowsPerPage));
+      if(currentPage < totalPages){ currentPage++; render(); }
+    });
+
+    // initialize
+    allRows = Array.from(tableBody.querySelectorAll('tr'));
+    applyFilters();
+  })();
+</script>
+<script>
+  // Add data-label attributes to table cells for mobile stacked layout
+  (function(){
+    document.addEventListener('DOMContentLoaded', () => {
+      const headers = Array.from(document.querySelectorAll('table thead th')).map(th => th.textContent.trim());
+      const rows = document.querySelectorAll('table tbody tr');
+      rows.forEach(row => {
+        Array.from(row.children).forEach((td, i) => {
+          if(headers[i]) td.setAttribute('data-label', headers[i]);
+        });
+      });
+    });
+  })();
+</script>
+<script>
+  // Modal view logic
+  (function(){
+    function qs(sel){ return document.querySelector(sel); }
+    const overlay = qs('#viewModalOverlay');
+    const modalBody = qs('#viewModal .modal-body');
+    const closeBtns = [qs('#viewModalClose'), qs('#viewModalClose2')];
+
+    function getRowData(row){
+      const cells = row.querySelectorAll('td');
+      return {
+        index: cells[0]?.textContent.trim(),
+        name: cells[1]?.textContent.trim(),
+        id: cells[2]?.textContent.trim(),
+        title: cells[3]?.textContent.trim(),
+        org: cells[4]?.textContent.trim(),
+        issued: cells[5]?.textContent.trim(),
+        expiration: cells[6]?.textContent.trim(),
+        status: cells[7]?.textContent.trim()
+      };
+    }
+
+    function renderDetails(data){
+      modalBody.innerHTML = `
+        <div class="space-y-2">
+          <div><strong>Teacher:</strong> ${data.name}</div>
+          <div><strong>ID Number:</strong> ${data.id}</div>
+          <div><strong>Certificate:</strong> ${data.title}</div>
+          <div><strong>Issuing Organization:</strong> ${data.org}</div>
+          <div><strong>Date Issued:</strong> ${data.issued}</div>
+          <div><strong>Expiration Date:</strong> ${data.expiration}</div>
+          <div><strong>Status:</strong> ${data.status}</div>
+        </div>
+      `;
+    }
+
+    function openModalForRow(row){
+      const data = getRowData(row);
+      renderDetails(data);
+      overlay.classList.remove('hidden');
+      overlay.classList.add('flex');
+      // trap focus: put focus on close button
+      closeBtns[0]?.focus();
+    }
+
+    function closeModal(){
+      overlay.classList.add('hidden');
+      overlay.classList.remove('flex');
+    }
+
+    // attach listeners to view buttons
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('button[aria-label="View"]');
+      if(btn){
+        const row = btn.closest('tr');
+        if(row) openModalForRow(row);
+      }
+    });
+
+    // close handlers
+    closeBtns.forEach(b => b && b.addEventListener('click', closeModal));
+    overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+  })();
+</script>
+</html>

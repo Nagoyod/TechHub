@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificate Expiration Notification</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+  <!-- Button to Trigger Modal -->
+  <button 
+    id="openModalBtn"
+    class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-2 rounded-lg shadow">
+    Show Expiration Alert
+  </button>
+
+  <!-- Modal Background -->
+  <div 
+    id="expirationModal" 
+    class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden flex items-center justify-center z-50">
+    
+    <!-- Modal Content -->
+    <div class="bg-white rounded-2xl shadow-lg w-11/12 max-w-md p-6 relative animate-fadeIn">
+      <!-- Close Button -->
+      <button id="closeModalBtn" 
+        class="absolute top-3 right-3 text-gray-400 hover:text-gray-700">
+        ✕
+      </button>
+
+      <!-- Notification Icon -->
+      <div class="flex justify-center mb-4">
+        <div class="bg-yellow-100 p-4 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" 
+            fill="none" viewBox="0 0 24 24" 
+            stroke-width="2" stroke="currentColor" 
+            class="w-8 h-8 text-yellow-600">
+            <path stroke-linecap="round" stroke-linejoin="round" 
+              d="M12 9v3.75m0 3.75h.007M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Title -->
+      <h2 class="text-xl font-semibold text-center text-gray-800 mb-2">
+        Certificate Expiration Alert
+      </h2>
+
+      <!-- Message -->
+      <p class="text-gray-600 text-center mb-4">
+        Your <span class="font-semibold text-gray-800">Teaching Certificate</span> 
+        is about to expire on 
+        <span class="text-red-600 font-semibold">October 10, 2025</span>.
+      </p>
+
+      <p class="text-gray-500 text-sm text-center mb-6">
+        Please renew your certification before the expiration date to keep your records up to date.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex justify-center gap-3">
+        <button 
+          id="renewBtn"
+          class="bg-yellow-500 hover:bg-yellow-600 text-white font-medium px-5 py-2 rounded-lg">
+          Renew Now
+        </button>
+        <button 
+          id="dismissBtn"
+          class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium px-5 py-2 rounded-lg">
+          Dismiss
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Animation -->
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.25s ease-out;
+    }
+  </style>
+
+  <!-- JavaScript -->
+  <script>
+    const openModalBtn = document.getElementById("openModalBtn");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const dismissBtn = document.getElementById("dismissBtn");
+    const renewBtn = document.getElementById("renewBtn");
+    const modal = document.getElementById("expirationModal");
+
+    const closeModal = () => modal.classList.add("hidden");
+
+    openModalBtn.addEventListener("click", () => modal.classList.remove("hidden"));
+    closeModalBtn.addEventListener("click", closeModal);
+    dismissBtn.addEventListener("click", closeModal);
+
+    renewBtn.addEventListener("click", () => {
+      alert("Redirecting to certificate renewal page...");
+      closeModal();
+    });
+
+    // Optional: Auto-show modal after a few seconds (for demo)
+    // window.onload = () => {
+    //   setTimeout(() => modal.classList.remove("hidden"), 2000);
+    // };
+  </script>
+
+</body>
+</html>

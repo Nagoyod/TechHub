@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CPD Certificates Records</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-6">
+
+  <!-- Header -->
+  <div class="mb-6 text-center">
+    <h1 class="text-2xl font-bold text-gray-800">CPD Certificates Records</h1>
+    <p class="text-gray-500">Admin View of All CPD Certificates</p>
+  </div>
+
+  <!-- Table Container -->
+  <div class="overflow-x-auto bg-white shadow-md rounded-2xl">
+    <table class="min-w-full border-collapse border border-gray-200">
+      <thead class="bg-indigo-600 text-white">
+        <tr>
+          <th class="py-3 px-4 text-left text-sm font-semibold">#</th>
+          <th class="py-3 px-4 text-left text-sm font-semibold">Teacher Name</th>
+          <th class="py-3 px-4 text-left text-sm font-semibold">ID Number</th>
+          <th class="py-3 px-4 text-left text-sm font-semibold">CPD Course Title</th>
+          <th class="py-3 px-4 text-left text-sm font-semibold">Training Provider</th>
+          <th class="py-3 px-4 text-left text-sm font-semibold">CPD Units</th>
+          <th class="py-3 px-4 text-left text-sm font-semibold">Date Acquired</th>
+          <th class="py-3 px-4 text-left text-sm font-semibold">Validity Period</th>
+          <th class="py-3 px-4 text-center text-sm font-semibold">Status</th>
+          <th class="py-3 px-4 text-center text-sm font-semibold">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody class="divide-y divide-gray-200">
+
+        <!-- Example Row 1 -->
+        <tr class="hover:bg-gray-50">
+          <td class="py-3 px-4 text-sm text-gray-700">1</td>
+          <td class="py-3 px-4 text-sm text-gray-800 font-medium">Maria Dela Cruz</td>
+          <td class="py-3 px-4 text-sm text-gray-600">TCH-00123</td>
+          <td class="py-3 px-4 text-sm text-gray-700">Inclusive Education Training</td>
+          <td class="py-3 px-4 text-sm text-gray-700">DepEd Zamboanga</td>
+          <td class="py-3 px-4 text-sm text-gray-700">12 Units</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2024-03-15</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2024-03-15 → 2027-03-15</td>
+          <td class="py-3 px-4 text-center">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+              Valid
+            </span>
+          </td>
+          <td class="py-3 px-4 text-center">
+            <button class="bg-blue-500 hover:bg-blue-600 text-white text-xs font-medium px-3 py-1 rounded-lg">View</button>
+            <button class="bg-red-500 hover:bg-red-600 text-white text-xs font-medium px-3 py-1 rounded-lg ml-2">Delete</button>
+          </td>
+        </tr>
+
+        <!-- Example Row 2 -->
+        <tr class="hover:bg-gray-50">
+          <td class="py-3 px-4 text-sm text-gray-700">2</td>
+          <td class="py-3 px-4 text-sm text-gray-800 font-medium">Juan Reyes</td>
+          <td class="py-3 px-4 text-sm text-gray-600">TCH-00456</td>
+          <td class="py-3 px-4 text-sm text-gray-700">ICT in Education Seminar</td>
+          <td class="py-3 px-4 text-sm text-gray-700">CHED</td>
+          <td class="py-3 px-4 text-sm text-gray-700">10 Units</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2023-08-20</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2023-08-20 → 2026-08-20</td>
+          <td class="py-3 px-4 text-center">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">
+              Expiring Soon
+            </span>
+          </td>
+          <td class="py-3 px-4 text-center">
+            <button class="bg-blue-500 hover:bg-blue-600 text-white text-xs font-medium px-3 py-1 rounded-lg">View</button>
+            <button class="bg-red-500 hover:bg-red-600 text-white text-xs font-medium px-3 py-1 rounded-lg ml-2">Delete</button>
+          </td>
+        </tr>
+
+        <!-- Example Row 3 -->
+        <tr class="hover:bg-gray-50">
+          <td class="py-3 px-4 text-sm text-gray-700">3</td>
+          <td class="py-3 px-4 text-sm text-gray-800 font-medium">Liza Santos</td>
+          <td class="py-3 px-4 text-sm text-gray-600">TCH-00890</td>
+          <td class="py-3 px-4 text-sm text-gray-700">Advanced Pedagogy Workshop</td>
+          <td class="py-3 px-4 text-sm text-gray-700">TESDA</td>
+          <td class="py-3 px-4 text-sm text-gray-700">8 Units</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2021-06-10</td>
+          <td class="py-3 px-4 text-sm text-gray-700">2021-06-10 → 2024-06-10</td>
+          <td class="py-3 px-4 text-center">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800">
+              Expired
+            </span>
+          </td>
+          <td class="py-3 px-4 text-center">
+            <button class="bg-blue-500 hover:bg-blue-600 text-white text-xs font-medium px-3 py-1 rounded-lg">View</button>
+            <button class="bg-red-500 hover:bg-red-600 text-white text-xs font-medium px-3 py-1 rounded-lg ml-2">Delete</button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <div class="mt-4 text-center text-gray-500 text-sm">
+    © 2025 CPD Certificate Management System
+  </div>
+
+</body>
+</html>
